@@ -1,7 +1,7 @@
 * {
-  background-color: whitesmoke;
+  background-color: black;
 }
-
+/* 232b2b */
 .Container {
   margin-top: 90px;
   padding: 50px;
@@ -12,7 +12,7 @@
   font-size: 30px;
   font-weight: 600;
   color: #42ab9e;
-  background-color: #232b2b;
+  background-color: black;
   margin-bottom: 10px;
 }
 
@@ -20,7 +20,7 @@
 .temp-container {
   font-size: 30px;
   font-weight: 600;
-  background-color: #232b2b;
+  background-color: black;
 }
 
 .Container,
@@ -30,7 +30,7 @@ input,
 form,
 .button {
   text-align: center;
-  background-color: #232b2b;
+  background-color: black;
 }
 
 .searched-city,
@@ -44,7 +44,7 @@ p,
 .temp-container,
 a,
 span {
-  background-color: #232b2b;
+  background-color: black;
   list-style: none;
   color: whitesmoke;
 }
@@ -75,13 +75,34 @@ input {
 }
 
 .CityButton {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   background-color: #42ab9e;
   color: whitesmoke;
   font-weight: 700;
+  font-size: 12px;
+}
+
+.CityButton:hover,
+.button:hover {
+  background-color: paleturquoise;
+  color: black;
 }
 
 .fixedButtons {
-  background-color: #232b2b;
+  background-color: black;
+}
+
+.CityButton:focus,
+button:focus {
+  outline-color: transparent;
+  box-shadow: var(--btn-color) 2px 2px 22px;
+}
+.CityButton,
+.button {
+  transition: all 0.2s ease-in-out;
+}
+.CityButton:hover,
+.button:hover {
+  transform: scale(1.1);
 }

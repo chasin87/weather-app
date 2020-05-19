@@ -8,6 +8,7 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -15,14 +16,12 @@ export default function Weather(props) {
       country: response.data.sys.country,
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
-
       date: new Date(response.data.dt * 1000),
     });
   }
 
   function search() {
     const apiKey = "e1f6338909b15ed65e927cc411d39098";
-
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
@@ -49,7 +48,9 @@ export default function Weather(props) {
               autoFocus="on"
               onChange={handleInput}
             />
+
             <input type="submit" value="zoeken" className="button" />
+            {weatherData.ready ? <Searchresult data={weatherData} /> : null}
             <div className="fixedButtons">
               <input
                 type="submit"
@@ -90,7 +91,6 @@ export default function Weather(props) {
             </div>
           </form>
         </div>
-        {weatherData.ready ? <Searchresult data={weatherData} /> : null}
       </div>
     </Container>
   );
