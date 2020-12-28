@@ -1,5 +1,5 @@
 * {
-  background-color: black;
+  background-color: rgb(45, 45, 45);
 }
 /* 232b2b */
 .Container {
@@ -12,7 +12,7 @@
   font-size: 30px;
   font-weight: 600;
   color: #42ab9e;
-  background-color: black;
+  background-color: rgb(45, 45, 45);
   margin-bottom: 10px;
 }
 
@@ -20,7 +20,7 @@
 .temp-container {
   font-size: 30px;
   font-weight: 600;
-  background-color: black;
+  background-color: rgb(45, 45, 45);
 }
 
 .Container,
@@ -30,7 +30,7 @@ input,
 form,
 .button {
   text-align: center;
-  background-color: black;
+  background-color: rgb(45, 45, 45);
 }
 
 .searched-city,
@@ -44,7 +44,7 @@ p,
 .temp-container,
 a,
 span {
-  background-color: black;
+  background-color: rgb(45, 45, 45);
   list-style: none;
   color: whitesmoke;
 }
@@ -66,7 +66,7 @@ input {
   text-transform: uppercase;
 }
 
-.button {
+button {
   background-color: #42ab9e;
   text-transform: uppercase;
   font-weight: 600;
@@ -84,13 +84,13 @@ input {
 }
 
 .CityButton:hover,
-.button:hover {
+button:hover {
   background-color: paleturquoise;
-  color: black;
+  color: rgb(45, 45, 45);
 }
 
 .fixedButtons {
-  background-color: black;
+  background-color: rgb(45, 45, 45);
 }
 
 .CityButton:focus,
@@ -99,7 +99,7 @@ button:focus {
   box-shadow: var(--btn-color) 2px 2px 22px;
 }
 .CityButton,
-.button {
+button {
   transition: all 0.2s ease-in-out;
 }
 .CityButton:hover,
