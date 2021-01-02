@@ -12,15 +12,16 @@ export default function WeatherIconForecast(props) {
   }
 
   useEffect(() => {
-    props.code &&
-      axios
-        .get(`http://openweathermap.org/img/wn/${props.code}@2x.png`)
-        .then((response) => {
-          iconHandler(response.config.url);
-        })
-        .catch((error) => {
-          alert("Icon not found forecast", error);
-        });
+    return props.code
+      ? axios
+          .get(`http://openweathermap.org/img/wn/${props.code}@2x.png`)
+          .then((response) => {
+            iconHandler(response.config.url);
+          })
+          .catch((error) => {
+            alert("Icon not found forecast", error);
+          })
+      : null;
   }, [props.code]);
 
   // const codeMapping = {
