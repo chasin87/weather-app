@@ -28,7 +28,7 @@ export default function WeatherIconForecast(props) {
       setIsLoading(true);
       try {
         const result = await axios(
-          `http://openweathermap.org/img/wn/${props.code}@2x.png`
+          `https://openweathermap.org/img/wn/${props.code}@2x.png`
         );
         iconHandler(result.config.url);
       } catch (error) {
