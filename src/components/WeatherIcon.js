@@ -15,6 +15,7 @@ export default function WeatherIcon(props) {
         .get(`http://openweathermap.org/img/wn/${props.code}@2x.png`)
         .then((response) => {
           iconHandler(response.config.url);
+          console.log(response.config.url);
         })
         .catch((error) => {
           alert("Icon not found", error);
