@@ -6,22 +6,37 @@ import "../styles/WeatherIconForecast.css";
 
 export default function WeatherIconForecast(props) {
   const [icons, setIcons] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   function iconHandler(response) {
     setIcons(response);
   }
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`http://openweathermap.org/img/wn/${props.code}@2x.png`)
+  //     .then((response) => {
+  //       iconHandler(response.config.url);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Icon not found forecast", error);
+  //     });
+  // }, [props.code]);
+
   useEffect(() => {
-    return props.code
-      ? axios
-          .get(`http://openweathermap.org/img/wn/${props.code}@2x.png`)
-          .then((response) => {
-            iconHandler(response.config.url);
-          })
-          .catch((error) => {
-            console.log("Icon not found forecast", error);
-          })
-      : null;
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const result = await axios(
+          `http://openweathermap.org/img/wn/${props.code}@2x.png`
+        );
+        iconHandler(result.config.url);
+      } catch (error) {
+        console.log("Icon not found forecast", error);
+      }
+      setIsLoading(false);
+    };
+    fetchData();
   }, [props.code]);
 
   // const codeMapping = {
@@ -47,13 +62,7 @@ export default function WeatherIconForecast(props) {
 
   return (
     <div className="animation_icon">
-      <img src={icons} alt="Icons" />
-      {/* <ReactAnimatedWeather
-        icon={codeMapping[props.code]}
-        color="#D9D9D9"
-        size={48}
-        animate={true}
-      /> */}
+      {isLoading ? <div>Loading ...</div> : <img src={icons} alt="Icons" />}
     </div>
   );
 }

@@ -16,7 +16,6 @@ export default function Weather() {
   const [later, setLater] = useState(false);
   const [lnger, setLnger] = useState(false);
   const [set, setSet] = useState(true);
-  const [loading, setLoading] = useState(false);
 
   function handleResponse(response) {
     setWeatherData({
@@ -68,7 +67,6 @@ export default function Weather() {
           const address = response.results[0].address_components[3].long_name;
           setCity(address);
           setSet(false);
-          setLoading(false);
         },
         (error) => {
           console.log(error);
@@ -135,16 +133,10 @@ export default function Weather() {
   return (
     <Container className="Container">
       <div className="container_data">
-        {loading ? (
-          <img className="loadingImg" src={sun} alt="sun" />
-        ) : city ? (
+        {city ? (
           <div className="Weather">
             {weatherData.ready ? (
-              <Searchresult
-                data={weatherData}
-                setSet={setSet}
-                setLoading={setLoading}
-              />
+              <Searchresult data={weatherData} setSet={setSet} />
             ) : null}
             {forecastData.ready ? <ForecastResult data={forecastData} /> : null}
 

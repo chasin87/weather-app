@@ -10,9 +10,8 @@ import MyLocationIcon from "@material-ui/icons/MyLocation";
 
 import "../styles/SearchResult.css";
 
-export default function Searchresult({ data, setSet, setLoading }) {
+export default function Searchresult({ data, setSet }) {
   function getMyLocation() {
-    setLoading(true);
     setSet(true);
   }
 
