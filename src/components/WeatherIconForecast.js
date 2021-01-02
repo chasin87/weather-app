@@ -19,7 +19,7 @@ export default function WeatherIconForecast(props) {
             iconHandler(response.config.url);
           })
           .catch((error) => {
-            alert("Icon not found forecast", error);
+            console.log("Icon not found forecast", error);
           })
       : null;
   }, [props.code]);

@@ -18,10 +18,12 @@ export default function WeatherIcon(props) {
             console.log(response.config.url);
           })
           .catch((error) => {
-            alert("Icon not found", error);
+            console.log("Icon not found", error);
           })
       : null;
   }, [props.code]);
+
+  //icons notloading online
 
   // const codeMapping = {
   //   "01d": "CLEAR_DAY",
