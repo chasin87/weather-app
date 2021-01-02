@@ -1,15 +1,15 @@
 import React from "react";
+import "../styles/DataComponent.css";
 
 export default function DateComponent(props) {
-  console.log(props.date);
   let days = [
-    "Zondag",
-    "Maandag",
-    "Dinsdag",
-    "Woensdag",
-    "Donderdag",
-    "Vrijdag",
-    "Zaterdag",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   let day = days[props.date.getDay()];
   let hours = props.date.getHours();
@@ -25,8 +25,8 @@ export default function DateComponent(props) {
 
   return (
     <div>
-      <div className="icon">
-        Laatste update op {day} {hours} : {minutes}
+      <div className="update_time">
+        {day} {hours} : {minutes}
       </div>
     </div>
   );

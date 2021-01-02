@@ -1,0 +1,14 @@
+.update_day {
+  font-size: 1rem;
+  font-weight: normal;
+  text-transform: capitalize;
+  color: #bababa;
+  margin-top: 10px;
+}
+
+.date_format {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #878787;
+}

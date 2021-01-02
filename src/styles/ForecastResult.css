@@ -1,0 +1,21 @@
+.main_forecast {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.forecast_box {
+  border-radius: 1px;
+  background-color: #fff;
+  border: 1px solid #f8f9fa;
+  margin: 2px;
+  padding-bottom: 6px;
+}
+
+.forecast_box_element {
+  display: inline-block;
+  height: 90px;
+  line-height: 1;
+  text-align: center;
+  width: 80px;
+}

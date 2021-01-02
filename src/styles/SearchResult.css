@@ -1,0 +1,56 @@
+.main {
+  /* background: rgb(248, 247, 247); */
+  border-radius: 7px 7px 0px 0px;
+}
+
+.searchresult {
+  display: flex;
+}
+
+.cityName {
+  color: #878787;
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 30%;
+}
+
+.description_weather {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.inputer {
+  background: rgb(248, 247, 247);
+  width: 70%;
+  border-radius: 0px 7px 0px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons_group {
+  padding: 10px 0px;
+  width: 100%;
+  display: flex;
+}
+.other_info {
+  width: 60%;
+  padding: 10px;
+  text-align: left;
+}
+.other_info p {
+  font-size: 0.9rem;
+  color: #878787;
+}
+
+.other_info p span {
+  font-size: 0.9rem;
+  color: #bababa;
+}

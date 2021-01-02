@@ -1,8 +1,14 @@
 import React from "react";
-import Weather from "./Pages/Weather";
+import Weather from "./components/Weather";
+import Nav from "./components/Nav";
 import "./App.css";
 
 function App() {
-  return <Weather></Weather>;
+  return (
+    <div>
+      <Nav />
+      <Weather />
+    </div>
+  );
 }
 export default App;

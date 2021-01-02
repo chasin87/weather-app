@@ -1,0 +1,24 @@
+.temp-container_forecast {
+  display: flex;
+  justify-content: center;
+}
+
+.forecast_temps {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+.forecast_temps_cels_max {
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: capitalize;
+  color: #878787;
+}
+
+.forecast_temps_cels_min {
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-transform: capitalize;
+  color: #bababa;
+}

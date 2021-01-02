@@ -1,0 +1,10 @@
+.temp-container {
+  display: flex;
+}
+
+.temp_numbers {
+  font-size: 4rem;
+}
+.temp_digit {
+  font-size: 1rem;
+}
