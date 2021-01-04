@@ -8,7 +8,7 @@
 }
 
 .container_data {
-  width: 70%;
+  width: 85%;
   margin: auto;
   border-radius: 8px;
   border: 1px solid #dfe1e5;
@@ -43,5 +43,14 @@
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 991px) {
+  .Container {
+    width: 100%;
+  }
+  .container_data {
+    width: 100%;
   }
 }

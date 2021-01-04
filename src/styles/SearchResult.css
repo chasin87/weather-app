@@ -160,3 +160,46 @@
 .button_f:hover {
   background: #ec6f4cc7;
 }
+
+@media (max-width: 991px) {
+  .cityName {
+    margin: auto;
+  }
+  .searchresult {
+    flex-direction: column;
+  }
+
+  .inputer {
+    width: 100%;
+  }
+
+  .buttons_group {
+    display: block !important;
+  }
+  .button_group {
+    text-align: center !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .other_info {
+    display: block;
+    text-align: center;
+  }
+
+  .input_city {
+    margin-top: 20px;
+    display: inline-grid;
+    width: 75%;
+  }
+  #input_basic {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .button_search {
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin: auto;
+  }
+}

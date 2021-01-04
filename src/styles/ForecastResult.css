@@ -19,3 +19,9 @@
   text-align: center;
   width: 80px;
 }
+
+@media (max-width: 991px) {
+  .main_forecast {
+    flex-direction: column;
+  }
+}

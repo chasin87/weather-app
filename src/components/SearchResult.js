@@ -74,7 +74,7 @@ export default function Searchresult({
             <div className="input_city">
               <input
                 id="input_basic"
-                placeholder="Search city.."
+                placeholder="Search city"
                 onChange={handleInput}
                 value={searcher}
               />
