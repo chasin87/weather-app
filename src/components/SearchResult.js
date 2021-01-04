@@ -53,24 +53,51 @@ export default function Searchresult({
             </div>
           </div>
           <div className="other_info">
-            <p>
-              <span>Feels Like:</span> {data.feels_like}°C
-            </p>
-            <p>
-              <span>Temp Max: </span>
-              {data.temp_max}°C
-            </p>
-            <p>
-              <span>Temp Min:</span> {data.temp_min}°C
-            </p>
-            <p>
-              <span>Wind Speed: </span>
-              {data.wind_speed} meter/sec
-            </p>
-            <p>
-              <span>Wind Direction:</span>
-              {data.wind_degree} degrees
-            </p>
+            {unit === "celsius" ? (
+              <div>
+                <p>
+                  <span>Feels Like: </span> {data.feels_like} °C
+                </p>
+                <p>
+                  <span>Temp Max: </span>
+                  {data.temp_max} °C
+                </p>
+                <p>
+                  <span>Temp Min: </span> {data.temp_min} °C
+                </p>
+                <p>
+                  <span>Wind Speed: </span>
+                  {data.wind_speed} meter/sec
+                </p>
+                <p>
+                  <span>Wind Direction: </span>
+                  {data.wind_degree} degrees
+                </p>
+              </div>
+            ) : (
+              <div>
+                <p>
+                  <span>Feels Like: </span>
+                  {Math.round(data.feels_like * 9) / 5 + 32} °F
+                </p>
+                <p>
+                  <span>Temp Max: </span>
+                  {Math.round(data.temp_max * 9) / 5 + 32} °F
+                </p>
+                <p>
+                  <span>Temp Min: </span>
+                  {Math.round(data.temp_min * 9) / 5 + 32} °F
+                </p>
+                <p>
+                  <span>Wind Speed: </span>
+                  {Math.round(data.wind_speed * 2.236936)} miles/sec
+                </p>
+                <p>
+                  <span>Wind Direction: </span>
+                  {data.wind_degree} degrees
+                </p>
+              </div>
+            )}
             <div className="input_city">
               <input
                 id="input_basic"
