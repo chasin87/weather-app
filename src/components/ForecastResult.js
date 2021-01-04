@@ -27,7 +27,11 @@ export default function ForecastResult(props) {
                   return resAlt.description;
                 })}
               />
-              <TempUnit celsius_max={res.temp.max} celsius_min={res.temp.min} />
+              <TempUnit
+                celsius_max={res.temp.max}
+                celsius_min={res.temp.min}
+                unit={props.unit}
+              />
             </div>
           </div>
         );

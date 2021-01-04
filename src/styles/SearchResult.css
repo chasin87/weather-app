@@ -28,29 +28,135 @@
 }
 
 .inputer {
-  background: rgb(248, 247, 247);
+  /* background: rgb(248, 247, 247); */
   width: 70%;
   border-radius: 0px 7px 0px 0px;
-  display: flex;
+  display: grid;
   flex-direction: column;
 }
 
 .buttons_group {
   padding: 10px 0px;
-  width: 100%;
-  display: flex;
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  align-items: center;
 }
+
+.button_group {
+  /* float: right; */
+  /* margin-right: 10px; */
+  box-shadow: none;
+  grid-template-columns: 100%;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  text-align: end;
+  margin-right: 10px;
+}
+
+.location_icon {
+  color: #ec6e4c;
+  width: 100%;
+  cursor: pointer;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
 .other_info {
-  width: 60%;
+  /* width: 60%; */
   padding: 10px;
   text-align: left;
+  line-height: 1.8rem;
+  display: grid;
+  grid-template-columns: 50%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  align-items: center;
 }
 .other_info p {
   font-size: 0.9rem;
   color: #878787;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 .other_info p span {
   font-size: 0.9rem;
   color: #bababa;
+}
+
+.input_city {
+  display: table;
+  align-items: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 6;
+  margin-bottom: -10px;
+  text-align: end;
+  /* margin-right: 10px; */
+}
+#input_basic {
+  padding: 8.5px 5px;
+  font-size: 1rem;
+  border-radius: 3px 0px 0px 3px;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+#input_basic:focus {
+  outline: none;
+}
+
+.button_search {
+  border-radius: 0px 3px 3px 0px;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  width: 5rem;
+  background-color: #ec6e4c;
+  color: #fff;
+  border-left: none;
+  cursor: pointer;
+}
+
+.button_search:focus {
+  outline: none;
+}
+
+.button_search:hover {
+  background: #ec6f4cc7;
+}
+
+.button_c {
+  font-size: 0.9rem;
+  padding: 10px 5px;
+  border: none;
+  width: 6.5rem;
+  background: #ec6e4c;
+  color: #fff;
+  border-right: none;
+  border-radius: 3px 0px 0px 3px;
+  cursor: pointer;
+}
+
+.button_f {
+  font-size: 0.9rem;
+  padding: 10px 5px;
+  border: none;
+  width: 6.5rem;
+  background: #ec6e4c;
+  color: #fff;
+  border-right: none;
+  border-radius: 0px 3px 3px 0px;
+  cursor: pointer;
+}
+
+.button_c:focus,
+.button_f:focus {
+  outline: none;
+}
+
+.button_c:hover,
+.button_f:hover {
+  background: #ec6f4cc7;
 }

@@ -3,14 +3,20 @@ import DateComponent from "./DataComponent";
 import WeatherIcon from "./WeatherIcon";
 import TempUnitCurrent from "./TempUnitCurrent";
 
-import TextField from "@material-ui/core/TextField";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import Button from "@material-ui/core/Button";
 import MyLocationIcon from "@material-ui/icons/MyLocation";
 
 import "../styles/SearchResult.css";
 
-export default function Searchresult({ data, setSet }) {
+export default function Searchresult({
+  data,
+  setSet,
+  handleInput,
+  handleSubmit,
+  searcher,
+  unit,
+  convertToC,
+  convertToF,
+}) {
   function getMyLocation() {
     setSet(true);
   }
@@ -25,29 +31,25 @@ export default function Searchresult({ data, setSet }) {
           <div className="icon">
             <WeatherIcon code={data.icon} alt={data.description} />
             <div className="temparture">
-              <TempUnitCurrent celsius={data.temperature} />
+              <TempUnitCurrent celsius={data.temperature} unit={unit} />
             </div>
           </div>
         </div>
         <div className="inputer">
           <div className="buttons_group">
-            <div
-              onClick={getMyLocation}
-              style={{ color: "#EC6E4C", width: "20%", cursor: "pointer" }}
-            >
+            <div onClick={getMyLocation} className="location_icon">
               <MyLocationIcon />
 
               <p style={{ fontSize: "0.7rem" }}>Current Location</p>
             </div>
-            <div style={{ width: "80%" }}>
-              <ButtonGroup
-                variant="contained"
-                color="primary"
-                aria-label="contained primary button group"
-              >
-                <Button style={{ fontSize: "0.6rem" }}>Metric: °C</Button>
-                <Button style={{ fontSize: "0.6rem" }}>Imperial: °F</Button>
-              </ButtonGroup>
+
+            <div className="button_group">
+              <button className="button_c" onClick={convertToC}>
+                Metric: °C
+              </button>
+              <button className="button_f" onClick={convertToF}>
+                Imperial: °F
+              </button>
             </div>
           </div>
           <div className="other_info">
@@ -69,16 +71,17 @@ export default function Searchresult({ data, setSet }) {
               <span>Wind Direction:</span>
               {data.wind_degree} degrees
             </p>
-          </div>
-          <div className="input_city">
-            <TextField
-              id="outlined-basic"
-              label="Outlined"
-              variant="outlined"
-            />
-            <Button variant="contained" color="primary">
-              Primary
-            </Button>
+            <div className="input_city">
+              <input
+                id="input_basic"
+                placeholder="Search city.."
+                onChange={handleInput}
+                value={searcher}
+              />
+              <button className="button_search" onClick={handleSubmit}>
+                Search
+              </button>
+            </div>
           </div>
         </div>
       </div>

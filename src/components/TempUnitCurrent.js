@@ -1,20 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "../styles/TempUnitCurrent.css";
 
 export default function TempUnitCurrent(props) {
-  const [unit, setUnit] = useState("celsius");
-  // function convertToF(event) {
-  //   event.preventDefault();
-  //   setUnit("fahrenheit");
-  // }
-
-  function convertToC(event) {
-    event.preventDefault();
-    setUnit("celsius");
-  }
-
-  if (unit === "celsius") {
+  if (props.unit === "celsius") {
     return (
       <div className="temp-container">
         <div className="temp_numbers">{Math.round(props.celsius)}</div>
@@ -26,25 +15,8 @@ export default function TempUnitCurrent(props) {
     return (
       <div className="temp-container">
         <div className="temp_numbers">{Math.round(fahrenheit)}</div>
-        <span>
-          <div className="temp_digit">
-            <a href="/" onClick={convertToC}>
-              °C{" "}
-            </a>
-            | °F
-          </div>
-        </span>
+        °F
       </div>
     );
   }
 }
-
-/* <span>
-<div className="temp_digit">
-  {" "}
-  °C |{" "}
-  <a href="/" onClick={convertToF}>
-    °F
-  </a>
-</div>
-</span> */

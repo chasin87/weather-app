@@ -16,21 +16,33 @@ export default function Weather() {
   const [later, setLater] = useState(false);
   const [lnger, setLnger] = useState(false);
   const [set, setSet] = useState(true);
+  const [unit, setUnit] = useState("celsius");
+  // const [isLoading, setIsLoading] = useState(false);
 
-  function handleResponse(response) {
+  function convertToC(event) {
+    event.preventDefault();
+    setUnit("celsius");
+  }
+
+  function convertToF(event) {
+    event.preventDefault();
+    setUnit("fahrenheit");
+  }
+
+  function handleResponse(result) {
     setWeatherData({
       ready: true,
-      temperature: response.data.main.temp,
-      feels_like: response.data.main.feels_like,
-      city: response.data.name,
-      country: response.data.sys.country,
-      icon: response.data.weather[0].icon,
-      description: response.data.weather[0].description,
-      date: new Date(response.data.dt * 1000),
-      temp_max: response.data.main.temp_max,
-      temp_min: response.data.main.temp_min,
-      wind_speed: response.data.wind.speed,
-      wind_degree: response.data.wind.deg,
+      temperature: result.data.main.temp,
+      feels_like: result.data.main.feels_like,
+      city: result.data.name,
+      country: result.data.sys.country,
+      icon: result.data.weather[0].icon,
+      description: result.data.weather[0].description,
+      date: new Date(result.data.dt * 1000),
+      temp_max: result.data.main.temp_max,
+      temp_min: result.data.main.temp_min,
+      wind_speed: result.data.wind.speed,
+      wind_degree: result.data.wind.deg,
     });
   }
 
@@ -40,17 +52,6 @@ export default function Weather() {
       responses: responses,
     });
   }
-
-  // Geocode.fromLatLng(lat, lng).then(
-  //   (response) => {
-  //     const address = response.results[0].address_components[3].long_name;
-  //     setCity(address);
-  //     console.log(address);
-  //   },
-  //   (error) => {
-  //     console.log(error);
-  //   }
-  // );
 
   Geocode.setApiKey(process.env.REACT_APP_WEATHER_API_GOOGLE);
   Geocode.setLanguage("en");
@@ -75,8 +76,6 @@ export default function Weather() {
     });
   }
 
-  console.log("set", set);
-
   city &&
     Geocode.fromAddress(city).then(
       (response) => {
@@ -90,16 +89,18 @@ export default function Weather() {
     );
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
-      )
-      .then((response) => {
-        handleResponse(response);
-      })
-      .catch((error) => {
-        alert("Please check the city name!", error);
-      });
+    const fetchData = async () => {
+      try {
+        const result = await axios(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+        );
+
+        handleResponse(result);
+      } catch (error) {
+        console.log("Please check the city name!", error);
+      }
+    };
+    fetchData();
   }, [city, set]);
 
   useEffect(() => {
@@ -112,11 +113,11 @@ export default function Weather() {
           forecastResponse(responses.data.daily);
         })
         .catch((error) => {
-          alert("Please check the city name!", error);
+          console.log("Please check the city name!", error);
         });
   }, [later, lnger, set]);
 
-  function handleSubmit(event) {
+  function handleSubmit() {
     setCity(searcher);
     setSearcher("");
   }
@@ -136,12 +137,28 @@ export default function Weather() {
         {city ? (
           <div className="Weather">
             {weatherData.ready ? (
-              <Searchresult data={weatherData} setSet={setSet} />
+              <Searchresult
+                data={weatherData}
+                setSet={setSet}
+                handleInput={handleInput}
+                handleSubmit={handleSubmit}
+                searcher={searcher}
+                convertToC={convertToC}
+                convertToF={convertToF}
+                unit={unit}
+              />
             ) : null}
-            {forecastData.ready ? <ForecastResult data={forecastData} /> : null}
+            {forecastData.ready ? (
+              <ForecastResult
+                data={forecastData}
+                convertToC={convertToC}
+                convertToF={convertToF}
+                unit={unit}
+              />
+            ) : null}
 
-            <section className="Header">Hoe is het weer vandaag?</section>
-            <div className="search-section">
+            {/* <section className="Header">Hoe is het weer vandaag?</section> */}
+            {/* <div className="search-section">
               <input
                 type="search"
                 placeholder="Voer een stadsnaam in"
@@ -150,14 +167,14 @@ export default function Weather() {
                 value={searcher}
                 onChange={handleInput}
               />
-              <button onClick={handleSubmit}>zoeken</button>
-              {/* <input
+              <button onClick={handleSubmit}>zoeken</button> */}
+            {/* <input
                 type="submit"
                 value="MyLocation"
                 className="CityButton"
                 onClick={getMyLocation}
               /> */}
-              {/* <div className="fixedButtons">
+            {/* <div className="fixedButtons">
                 <input
                   type="submit"
                   value="Amsterdam"
@@ -202,7 +219,7 @@ export default function Weather() {
                   onClick={getMyLocation}
                 />
               </div> */}
-            </div>
+            {/* </div> */}
           </div>
         ) : (
           <img className="loadingImg" src={sun} alt="sun" />

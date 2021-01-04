@@ -8,6 +8,11 @@
   justify-content: space-evenly;
   width: 70%;
 }
+.forecast_temps_forecast {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
 
 .forecast_temps_cels_max {
   font-size: 1.1rem;
