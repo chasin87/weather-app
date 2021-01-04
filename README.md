@@ -6,7 +6,7 @@
 <img src="src/Screenshot/MainScreenCelsius.png" width="80%" height="80%">
 </p>
 
-# Efelay Music Player
+# Efelay Weather App
 
 Efelay Weather App is an application created with ReactJS where you can get the weather information on your location or any other choosen location.
 
@@ -21,7 +21,7 @@ Efelay Weather App is an application created with ReactJS where you can get the 
 
 ### App Demo:
 
-#### Link to the app [Efelay Music Player](https://efelay-weather.netlify.app/).
+#### Link to the app [Efelay Weather App](https://efelay-weather.netlify.app/).
 
 ### Goals for this project
 
