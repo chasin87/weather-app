@@ -9,7 +9,7 @@ import "../styles/SearchResult.css";
 
 export default function Searchresult({
   data,
-  setSet,
+  locationer,
   handleInput,
   handleSubmit,
   searcher,
@@ -18,7 +18,7 @@ export default function Searchresult({
   convertToF,
 }) {
   function getMyLocation() {
-    setSet(true);
+    locationer();
   }
 
   return (

@@ -8,6 +8,7 @@ import "../styles/ForecastResult.css";
 
 export default function ForecastResult(props) {
   const result = props.data.responses;
+
   return (
     <div className="main_forecast">
       {result.map((res) => {

@@ -11,13 +11,13 @@ import sun from "./../images/sun.png";
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [forecastData, setForecastData] = useState({ ready: false });
-  const [city, setCity] = useState(false);
+  const [city, setCity] = useState(null);
   const [searcher, setSearcher] = useState("");
   const [later, setLater] = useState(false);
   const [lnger, setLnger] = useState(false);
-  const [set, setSet] = useState(true);
+  // const [set, setSet] = useState(true);
   const [unit, setUnit] = useState("celsius");
-  // const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function convertToC(event) {
     event.preventDefault();
@@ -53,28 +53,36 @@ export default function Weather() {
     });
   }
 
+  useEffect(() => {
+    locationer();
+  }, []);
+
   Geocode.setApiKey(process.env.REACT_APP_WEATHER_API_GOOGLE);
   Geocode.setLanguage("en");
   Geocode.enableDebug();
 
-  if (set) {
+  const locationer = () => {
+    setLoading(true);
     navigator.geolocation.getCurrentPosition((position) => {
+      setLoading(true);
       let lat = ("Latitude is :", position.coords.latitude);
       let lng = ("Longitude is :", position.coords.longitude);
       setLater(position.coords.latitude);
       setLnger(position.coords.longitude);
+
       Geocode.fromLatLng(lat, lng).then(
         (response) => {
+          setCity(false);
           const address = response.results[0].address_components[3].long_name;
           setCity(address);
-          setSet(false);
+          setLoading(false);
         },
         (error) => {
           console.log(error);
         }
       );
     });
-  }
+  };
 
   city &&
     Geocode.fromAddress(city).then(
@@ -92,7 +100,7 @@ export default function Weather() {
     const fetchData = async () => {
       try {
         const result = await axios(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
         );
 
         handleResponse(result);
@@ -100,26 +108,29 @@ export default function Weather() {
         console.log("Please check the city name!", error);
       }
     };
-    fetchData();
-  }, [city, set]);
+    city && fetchData();
+  }, [city]);
 
   useEffect(() => {
-    lnger &&
+    city &&
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
         )
         .then((responses) => {
           forecastResponse(responses.data.daily);
+          setLoading(false);
         })
         .catch((error) => {
           console.log("Please check the city name!", error);
         });
-  }, [later, lnger, set]);
+  }, [later, lnger, city]);
 
   function handleSubmit() {
+    setLoading(true);
     setCity(searcher);
     setSearcher("");
+    setLoading(false);
   }
 
   function handleInput(event) {
@@ -133,32 +144,36 @@ export default function Weather() {
 
   return (
     <Container className="Container">
-      <div className="container_data">
-        {city ? (
-          <div className="Weather">
-            {weatherData.ready ? (
-              <Searchresult
-                data={weatherData}
-                setSet={setSet}
-                handleInput={handleInput}
-                handleSubmit={handleSubmit}
-                searcher={searcher}
-                convertToC={convertToC}
-                convertToF={convertToF}
-                unit={unit}
-              />
-            ) : null}
-            {forecastData.ready ? (
-              <ForecastResult
-                data={forecastData}
-                convertToC={convertToC}
-                convertToF={convertToF}
-                unit={unit}
-              />
-            ) : null}
+      {loading ? (
+        <img className="loadingImg" src={sun} alt="sun" />
+      ) : (
+        <div className="container_data">
+          {city ? (
+            <div className="Weather">
+              {weatherData.ready ? (
+                <Searchresult
+                  data={weatherData}
+                  locationer={locationer}
+                  handleInput={handleInput}
+                  handleSubmit={handleSubmit}
+                  searcher={searcher}
+                  convertToC={convertToC}
+                  convertToF={convertToF}
+                  unit={unit}
+                />
+              ) : null}
+              {forecastData.ready ? (
+                <ForecastResult
+                  data={forecastData}
+                  convertToC={convertToC}
+                  convertToF={convertToF}
+                  unit={unit}
+                  city={city}
+                />
+              ) : null}
 
-            {/* <section className="Header">Hoe is het weer vandaag?</section> */}
-            {/* <div className="search-section">
+              {/* <section className="Header">Hoe is het weer vandaag?</section> */}
+              {/* <div className="search-section">
               <input
                 type="search"
                 placeholder="Voer een stadsnaam in"
@@ -168,13 +183,13 @@ export default function Weather() {
                 onChange={handleInput}
               />
               <button onClick={handleSubmit}>zoeken</button> */}
-            {/* <input
+              {/* <input
                 type="submit"
                 value="MyLocation"
                 className="CityButton"
                 onClick={getMyLocation}
               /> */}
-            {/* <div className="fixedButtons">
+              {/* <div className="fixedButtons">
                 <input
                   type="submit"
                   value="Amsterdam"
@@ -219,12 +234,13 @@ export default function Weather() {
                   onClick={getMyLocation}
                 />
               </div> */}
-            {/* </div> */}
-          </div>
-        ) : (
-          <img className="loadingImg" src={sun} alt="sun" />
-        )}
-      </div>
+              {/* </div> */}
+            </div>
+          ) : (
+            <img className="loadingImg" src={sun} alt="sun" />
+          )}
+        </div>
+      )}
     </Container>
   );
 }
