@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-<img src="src/ScreenShot/MainScreenCelsius.png" width="80%" height="80%">
+<img src="src/Screenshot/MainScreenCelsius.png" width="80%" height="80%">
 </p>
 
 # Efelay Music Player
