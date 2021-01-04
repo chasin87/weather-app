@@ -134,6 +134,7 @@ export default function Weather() {
       setCity(searcher);
       setSearcher("");
       setLoading(false);
+      window.scrollTo(0, 0);
     }
   }
 
