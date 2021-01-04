@@ -52,16 +52,16 @@ The goal of this project is to build a React app using different Api data.
 ### Screenshots
 
 <p align="center">
-<img src="src/ScreenShot/MainScreenCelsius.png" width="80%" height="80%">
+<img src="src/Screenshot/MainScreenCelsius.png" width="80%" height="80%">
 </p>
 
 <p align="center">
-<img src="src/ScreenShot/MainScreenFahrenheit.png" width="80%" height="80%">
+<img src="src/Screenshot/MainScreenFahrenheit.png" width="80%" height="80%">
 </p>
 
 <p align="center">
-<img src="src/ScreenShot/MobileScreenCelsius.png" width="80%" height="80%">
+<img src="src/Screenshot/MobileScreenCelsius.png" width="80%" height="80%">
 </p>
 
 <p align="center">
-<img src="src/ScreenShot/MobileScreenForecastCelsius.png" width="80%" height="80%">
+<img src="src/Screenshot/MobileScreenForecastCelsius.png" width="80%" height="80%">
