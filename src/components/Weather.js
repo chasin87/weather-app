@@ -127,10 +127,14 @@ export default function Weather() {
   }, [later, lnger, city]);
 
   function handleSubmit() {
-    setLoading(true);
-    setCity(searcher);
-    setSearcher("");
-    setLoading(false);
+    if (searcher === "") {
+      alert("Please enter a city");
+    } else {
+      setLoading(true);
+      setCity(searcher);
+      setSearcher("");
+      setLoading(false);
+    }
   }
 
   function handleInput(event) {
