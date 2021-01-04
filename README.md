@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+ EfeLay <span style={{ fontWeight: 400 }}>Weather App</span>
+</h1>
 
-## Available Scripts
+<p align="center">
+<img src="src/ScreenShot/MainScreenCelsius.png" width="80%" height="80%">
+</p>
 
-In the project directory, you can run:
+# Efelay Music Player
 
-### `npm start`
+Efelay Weather App is an application created with ReactJS where you can get the weather information on your location or any other choosen location.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of contents:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- **[App demo](#app-demo)**
+- **[Goals for this project](#goals-for-this-project)**
+- **[Technologies used](#technologies-used)**
+- **[User stories](#user-stories)**
+- **[Instalation](#instalation)**
+- **[Screenshots](#screenshots)**
 
-### `npm test`
+### App Demo:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Link to the app [Efelay Music Player](https://efelay-weather.netlify.app/).
 
-### `npm run build`
+### Goals for this project
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The goal of this project is to build a React app using different Api data.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Technologies used:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![REACTJS](https://img.shields.io/badge/-ReactJS-%23000?logo=react)
+![HTML](https://img.shields.io/badge/-HTML5-%23fff?logo=html5)
+![CSS](https://img.shields.io/badge/-CSS3-%231572B6?logo=css3)
 
-### `npm run eject`
+### User Stories
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- As a user, I want to see the current weather on my location
+- As a user, I want to see the weather on any choosen location
+- As a user, I want to see the forecast weather on my location
+- As a user, I want to see the forecast weather on any choosen location
+- As a user, I want to see the current weather in Fahrenheit
+- As a user, I want to see the forecast weather in Fahrenheit
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Instalation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone the app
+2. cd into your project
+3. install dependencies (npm install)
+4. Start development server with (npm start)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Screenshots
 
-## Learn More
+<p align="center">
+<img src="src/ScreenShot/MainScreenCelsius.png" width="80%" height="80%">
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="center">
+<img src="src/ScreenShot/MainScreenFahrenheit.png" width="80%" height="80%">
+</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p align="center">
+<img src="src/ScreenShot/MobileScreenCelsius.png" width="80%" height="80%">
+</p>
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<p align="center">
+<img src="src/ScreenShot/MobileScreenForecastCelsius.png" width="80%" height="80%">
