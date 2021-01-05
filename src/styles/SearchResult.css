@@ -108,6 +108,11 @@
 #input_basic:focus {
   outline: none;
 }
+input[type="text"],
+input[type="button"] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
 
 .button_search {
   border-radius: 0px 3px 3px 0px;
