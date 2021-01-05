@@ -86,7 +86,7 @@
 }
 
 .input_city {
-  display: table;
+  /* display: table; */
   align-items: center;
   grid-column-start: 2;
   grid-column-end: 3;
@@ -97,8 +97,8 @@
   /* margin-right: 10px; */
 }
 #input_basic {
-  padding: 8.5px 5px;
-  font-size: 1rem;
+  padding: 10px 5px;
+  /* font-size: 1rem; */
   border-radius: 3px 0px 0px 3px;
   border: 1px solid #ccc;
   border-right: none;
