@@ -1,10 +1,12 @@
 .temp-container {
   display: flex;
+  /* margin-top: 20px; */
+  /* justify-content: center; */
 }
 
 .temp_numbers {
-  font-size: 4rem;
+  font-size: 7rem;
 }
-.temp_digit {
-  font-size: 1rem;
+.temp-digit {
+  font-size: 2rem;
 }

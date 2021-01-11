@@ -4,9 +4,11 @@ import Searchresult from "./SearchResult";
 import axios from "axios";
 import "../styles/Weather.css";
 import Geocode from "react-geocode";
-import ForecastResult from "./ForecastResult";
+import "../styles/SearchResult.css";
+import Loading from "./Loading";
 
-import sun from "./../images/sun.png";
+import "react-circular-progressbar/dist/styles.css";
+import { Animated } from "react-animated-css";
 
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -18,6 +20,9 @@ export default function Weather() {
   // const [set, setSet] = useState(true);
   const [unit, setUnit] = useState("celsius");
   const [loading, setLoading] = useState(false);
+  const [activeClass, setActiveClass] = useState(false);
+  const [renew, setRenew] = useState(false);
+  const [updateMessage, setUpdateMessage] = useState(false);
 
   function convertToC(event) {
     event.preventDefault();
@@ -43,6 +48,7 @@ export default function Weather() {
       temp_min: result.data.main.temp_min,
       wind_speed: result.data.wind.speed,
       wind_degree: result.data.wind.deg,
+      humidity: result.data.main.humidity,
     });
   }
 
@@ -55,6 +61,7 @@ export default function Weather() {
 
   useEffect(() => {
     locationer();
+    // setLoading(true);
   }, []);
 
   Geocode.setApiKey(process.env.REACT_APP_WEATHER_API_GOOGLE);
@@ -62,7 +69,6 @@ export default function Weather() {
   Geocode.enableDebug();
 
   const locationer = () => {
-    setLoading(true);
     navigator.geolocation.getCurrentPosition((position) => {
       setLoading(true);
       let lat = ("Latitude is :", position.coords.latitude);
@@ -74,8 +80,10 @@ export default function Weather() {
         (response) => {
           setCity(false);
           const address = response.results[0].address_components[3].long_name;
+          const { lat, lng } = response.results[0].geometry.location;
+          setLater(lat);
+          setLnger(lng);
           setCity(address);
-          setLoading(false);
         },
         (error) => {
           console.log(error);
@@ -84,40 +92,45 @@ export default function Weather() {
     });
   };
 
-  city &&
-    Geocode.fromAddress(city).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLater(lat);
-        setLnger(lng);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  // city &&
+  //   Geocode.fromAddress(city).then(
+  //     (response) => {
+  //       const { lat, lng } = response.results[0].geometry.location;
+  //       setLater(lat);
+  //       setLnger(lng);
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await axios(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
+          // `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
         );
 
         handleResponse(result);
+        setTimeout(() => {
+          setUpdateMessage(false);
+        }, 2000);
       } catch (error) {
         console.log("Please check the city name!", error);
       }
     };
     city && fetchData();
-  }, [city]);
+  }, [city, updateMessage]);
 
   useEffect(() => {
     city &&
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
         )
         .then((responses) => {
+          setLoading(true);
           forecastResponse(responses.data.daily);
           setLoading(false);
         })
@@ -133,8 +146,9 @@ export default function Weather() {
       setLoading(true);
       setCity(searcher);
       setSearcher("");
-      setLoading(false);
+      setActiveClass(false);
       window.scrollTo(0, 0);
+      // setLoading(false);
     }
   }
 
@@ -149,13 +163,17 @@ export default function Weather() {
 
   return (
     <Container className="Container">
-      {loading ? (
-        <img className="loadingImg" src={sun} alt="sun" />
-      ) : (
-        <div className="container_data">
-          {city ? (
-            <div className="Weather">
-              {weatherData.ready ? (
+      <div className="container_data">
+        {city ? (
+          <div className="Weather">
+            {weatherData.ready ? (
+              <Animated
+                animationIn="rotateIn"
+                animationOut="rotateOut"
+                animationInDuration={1000}
+                animationOutDuration={1000}
+                isVisible={true}
+              >
                 <Searchresult
                   data={weatherData}
                   locationer={locationer}
@@ -165,20 +183,20 @@ export default function Weather() {
                   convertToC={convertToC}
                   convertToF={convertToF}
                   unit={unit}
-                />
-              ) : null}
-              {forecastData.ready ? (
-                <ForecastResult
-                  data={forecastData}
-                  convertToC={convertToC}
-                  convertToF={convertToF}
-                  unit={unit}
+                  activeClass={activeClass}
+                  setActiveClass={setActiveClass}
+                  renew={renew}
+                  setRenew={setRenew}
+                  setUpdateMessage={setUpdateMessage}
+                  updateMessage={updateMessage}
                   city={city}
+                  forecastData={forecastData}
+                  loading={loading}
                 />
-              ) : null}
+              </Animated>
+            ) : null}
 
-              {/* <section className="Header">Hoe is het weer vandaag?</section> */}
-              {/* <div className="search-section">
+            {/* <div className="search-section">
               <input
                 type="search"
                 placeholder="Voer een stadsnaam in"
@@ -188,13 +206,13 @@ export default function Weather() {
                 onChange={handleInput}
               />
               <button onClick={handleSubmit}>zoeken</button> */}
-              {/* <input
+            {/* <input
                 type="submit"
                 value="MyLocation"
                 className="CityButton"
                 onClick={getMyLocation}
               /> */}
-              {/* <div className="fixedButtons">
+            {/* <div className="fixedButtons">
                 <input
                   type="submit"
                   value="Amsterdam"
@@ -239,13 +257,26 @@ export default function Weather() {
                   onClick={getMyLocation}
                 />
               </div> */}
-              {/* </div> */}
+            {/* </div> */}
+          </div>
+        ) : (
+          <div className="wrapper">
+            <div className="Loading_first">
+              <Loading />
             </div>
-          ) : (
-            <img className="loadingImg" src={sun} alt="sun" />
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </Container>
   );
 }
+
+// {forecastData.ready ? (
+//   <ForecastResult
+//     data={forecastData}
+//     convertToC={convertToC}
+//     convertToF={convertToF}
+//     unit={unit}
+//     city={city}
+//   />
+// ) : null}

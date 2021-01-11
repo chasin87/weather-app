@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import "../styles/WeatherIconForecast.css";
+
 export default function WeatherIcon(props) {
   const [icons, setIcons] = useState(null);
 
@@ -24,7 +26,7 @@ export default function WeatherIcon(props) {
 
   return (
     <div>
-      <img src={icons} alt="Icons" />
+      <img src={icons} alt="Icons" className="img_icon" />
     </div>
   );
 }

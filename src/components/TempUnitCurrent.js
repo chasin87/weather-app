@@ -7,7 +7,7 @@ export default function TempUnitCurrent(props) {
     return (
       <div className="temp-container">
         <div className="temp_numbers">{Math.round(props.celsius)}</div>
-        °C
+        <div className="temp-digit">°C</div>
       </div>
     );
   } else {
@@ -15,7 +15,7 @@ export default function TempUnitCurrent(props) {
     return (
       <div className="temp-container">
         <div className="temp_numbers">{Math.round(fahrenheit)}</div>
-        °F
+        <div className="temp-digit">°F</div>
       </div>
     );
   }

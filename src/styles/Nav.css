@@ -1,0 +1,28 @@
+.icons_nav {
+  display: flex;
+  /* margin: 5px; */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icons_menu_nav {
+  display: flex;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+
+.icons_weather_nav {
+  display: flex;
+  margin: 10px;
+  margin-right: -35px;
+}
+
+.iconsNav_remove {
+  display: none !important;
+  transition: all 0.5s ease;
+}
+
+.menuIcon {
+  margin: 10px;
+  transition: all 0.5s ease;
+}

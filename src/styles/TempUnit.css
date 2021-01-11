@@ -1,6 +1,7 @@
 .temp-container_forecast {
   display: flex;
   justify-content: center;
+  width: 100px;
 }
 
 .forecast_temps {
@@ -15,15 +16,15 @@
 }
 
 .forecast_temps_cels_max {
-  font-size: 1.1rem;
-  font-weight: normal;
+  font-size: 1.8rem;
+  font-weight: 700;
   text-transform: capitalize;
-  color: #878787;
+  color: #fff;
 }
 
 .forecast_temps_cels_min {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: normal;
   text-transform: capitalize;
-  color: #bababa;
+  color: #fff;
 }

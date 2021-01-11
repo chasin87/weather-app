@@ -15,7 +15,7 @@ export default function WeatherIconForecast(props) {
     const fetchData = async () => {
       try {
         const result = await axios(
-          `https://openweathermap.org/img/wn/${props.code}@2x.png`
+          `https://openweathermap.org/img/wn/${props.code}.png`
         );
         iconHandler(result.config.url);
       } catch (error) {

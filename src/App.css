@@ -4,6 +4,19 @@
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Raleway", sans-serif;
+  overflow: hidden;
   background: #fff;
+}
+
+@media (max-width: 991px) {
+  body {
+    overflow-y: scroll !important;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .MuiContainer-root {
+    padding: unset !important;
+  }
 }

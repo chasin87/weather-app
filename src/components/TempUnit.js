@@ -6,7 +6,7 @@ export default function TempUnit(props) {
   if (props.unit === "celsius") {
     return (
       <div className="temp-container_forecast">
-        <div className="forecast_temps">
+        <div className="forecast_temps_forecast">
           <div className="forecast_temps_cels_max">
             {Math.round(props.celsius_max)}°
           </div>
