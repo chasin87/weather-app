@@ -16,7 +16,7 @@
 }
 
 .some_text {
-  font-size: 2vh;
+  font-size: 2rem;
   /* font-weight: 600; */
   padding: 20px;
   margin-bottom: 20px;
@@ -87,7 +87,7 @@
   transition: all 0.5s ease;
   opacity: 0;
   transform: translateX(100%);
-  transition: all 3s ease;
+  transition: all 0.5s ease;
   display: grid;
 }
 
@@ -227,7 +227,7 @@
 
 .searchBar {
   align-items: center;
-  height: 600px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;

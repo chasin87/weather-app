@@ -27,7 +27,7 @@
   border-radius: 20px;
   /* border: 1px solid #dfe1e5; */
   box-shadow: none;
-  position: relative;
+  /* position: relative; */
 }
 
 .loadingImg {
@@ -76,12 +76,17 @@
 @media (max-width: 991px) {
   .Container {
     padding: unset;
+    position: unset;
   }
-  /* .container_data {
-    width: 100%;
-  } */
 
   .container_data {
-    width: 100%;
+    width: 100vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .MuiContainer-root {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }

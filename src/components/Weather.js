@@ -80,9 +80,9 @@ export default function Weather() {
         (response) => {
           setCity(false);
           const address = response.results[0].address_components[3].long_name;
-          const { lat, lng } = response.results[0].geometry.location;
-          setLater(lat);
-          setLnger(lng);
+          // const { lat, lng } = response.results[0].geometry.location;
+          // setLater(lat);
+          // setLnger(lng);
           setCity(address);
         },
         (error) => {
@@ -92,24 +92,24 @@ export default function Weather() {
     });
   };
 
-  // city &&
-  //   Geocode.fromAddress(city).then(
-  //     (response) => {
-  //       const { lat, lng } = response.results[0].geometry.location;
-  //       setLater(lat);
-  //       setLnger(lng);
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
+  city &&
+    Geocode.fromAddress(city).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLater(lat);
+        setLnger(lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const result = await axios(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
-          // `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+          // `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
         );
 
         handleResponse(result);
@@ -127,11 +127,12 @@ export default function Weather() {
     city &&
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
         )
         .then((responses) => {
           setLoading(true);
           forecastResponse(responses.data.daily);
+          console.log("responses.data.daily", responses.data.daily);
           setLoading(false);
         })
         .catch((error) => {
