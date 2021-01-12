@@ -116,11 +116,12 @@
   border-radius: 0px 20px 0px 0px;
   grid-row-start: 1;
   grid-row-end: 2;
+  text-align: center;
 }
 
 .right_text {
   font-size: 20px;
-  color: #979797;
+  color: #5c5c5c;
   text-align: left;
   padding: 10px;
   margin-top: 20px;
@@ -153,9 +154,9 @@
   border-radius: 0px 0px 20px 0px;
   grid-row-start: 2;
   grid-row-end: 3;
-  background-image: linear-gradient(to bottom, transparent 50%, #fa644240 50%),
-    linear-gradient(to right, #fff 50%, #fa644240 50%);
-  background-size: 3px 3px, 3px 3px;
+  background-image: linear-gradient(to bottom, transparent 50%, #d6ec12 50%),
+    linear-gradient(to right, #fff 50%, #d6ec12 50%);
+  background-size: 6px 6px, 6px 6px;
   /* background: #fff; */
   display: grid;
   width: 100%;
@@ -167,7 +168,7 @@
   text-transform: capitalize;
   text-align: center;
   margin-top: -80px;
-  color: #979797;
+  color: #5c5c5c;
 }
 
 .icon {
@@ -341,6 +342,7 @@ input[type="button"] {
     border-radius: 20px 20px 0px 0px;
     grid-row-start: 1;
     grid-row-end: 2;
+    padding-bottom: 20px;
   }
 
   .some_text {
@@ -387,6 +389,7 @@ input[type="button"] {
     grid-row-start: unset;
     grid-row-end: unset;
     grid-template-rows: 30% 50% 20%;
+    padding-bottom: 10px;
   }
 
   .icon {
