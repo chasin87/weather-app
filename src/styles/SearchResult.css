@@ -354,7 +354,7 @@ input[type="button"] {
   }
 
   .city {
-    margin-left: 30px;
+    margin-left: 20px;
   }
   .cityName_menu {
     margin-top: 100%;
@@ -386,6 +386,21 @@ input[type="button"] {
   .right_side_bottom {
     grid-row-start: unset;
     grid-row-end: unset;
+    grid-template-rows: 30% 50% 20%;
+  }
+
+  .icon {
+    grid-template-rows: unset;
+    margin-top: unset;
+  }
+
+  .img_icon {
+    margin-top: -10px;
+  }
+
+  .description_weather {
+    margin-top: -20px;
+    margin-bottom: 5px;
   }
 
   .developed_By {
@@ -394,5 +409,9 @@ input[type="button"] {
 
   .quote_text {
     margin: 5px;
+  }
+
+  #input_basic {
+    width: 90%;
   }
 }
