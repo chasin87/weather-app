@@ -33,7 +33,7 @@
 .today {
   font-size: 16px;
   display: flex;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .Nav_in_city {
@@ -130,6 +130,8 @@
 
 .CircularProgressbar {
   width: 50%;
+  display: grid;
+  margin: 20px auto;
 }
 
 .CircularProgressbar .CircularProgressbar-text {
@@ -321,175 +323,76 @@ input[type="button"] {
   background: #ec6f4cc7;
 }
 
-@media (max-width: 991px) {
-  .cityName {
-    /* margin: auto; */
-    border-radius: 0px 0px 0px 0px;
-    /* position: absolute; */
-    padding: 0rem 5rem 5rem 5rem;
-    max-width: 100%;
-    /* width: unset; */
-    width: -webkit-fill-available;
-    z-index: auto;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    height: auto;
-  }
-  .searchresult {
-    /* flex-direction: column; */
-    /* align-items: center; */
-    display: grid;
-    /* margin-top: 20px; */
-    /* margin-bottom: 40px; */
-    /* grid-template-rows: 77% 26%; */
-    min-width: 100vw;
-    border-radius: 0px;
-  }
-
-  .inputer {
-    width: 100%;
-  }
-
-  .buttons_group {
-    display: block !important;
-  }
-  .button_group {
-    text-align: center !important;
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
-  }
-  .other_info {
-    display: block;
-    text-align: center;
-  }
-
-  .input_city {
-    margin-top: 20px;
-    display: inline-grid;
-    width: 75%;
-  }
-  #input_basic {
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-  }
-  .button_search {
-    /* border-radius: 3px; */
-    /* border: 1px solid #ccc; */
-    /* margin: auto; */
-  }
-
-  .some_text {
-    font-size: 2.4vh;
-    padding: unset;
-    margin-left: -10px;
-    height: 147px;
-  }
-
-  .quote_by {
-    font-size: 0.7rem;
-  }
-
-  .right_side {
-    width: 100%;
-    /* display: flex; */
-    /* margin-top: 30px; */
-    grid-template-columns: 50% 50%;
-    grid-template-rows: unset;
-    grid-row-start: 2;
-    grid-row-end: 3;
-  }
-
-  .right_side_top {
-    border-radius: 0px 20px 0px 20px;
-    display: grid;
-  }
-
-  .icon {
-    margin-top: unset;
-    grid-template-rows: 25% 75%;
-  }
-
-  .right_text {
-    margin-left: unset;
-    text-align: center;
-    padding: unset;
-  }
-  .description_weather {
-    margin-top: -50px;
-  }
-
-  .right_side_bottom {
-    background-size: 2px 2px, 1px 2px;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: unset;
-    grid-row-end: unset;
-    border-radius: 0px;
-  }
-
-  .menu_side {
-    transform: translateY(-100%);
-    grid-row-start: 1;
-    grid-row-end: 2;
-    position: absolute;
-    width: 100%;
-  }
-
-  .menu_side_active {
-    width: 100%;
-    z-index: 200;
-    border-radius: 0px;
-    transform: translateY(0%);
-  }
-
-  .menu_item {
-    font-size: 1rem;
-  }
-  .developed_By {
-    font-size: 0.7rem;
-    padding-top: 0px !important;
-    margin-bottom: 10px;
-  }
-
-  .cityName_menu {
-    margin-left: unset;
-    margin-top: 30vh;
-  }
-
-  .CircularProgressbar {
-    padding: 20px;
-  }
-
-  .icons_menu_nav {
-    font-size: 1.3rem;
-  }
-  .icons_weather_nav {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 401px) {
-  .icons_menu_nav {
-    font-size: 1.1rem;
-  }
-  .icons_weather_nav {
-    font-size: 1.1rem;
-  }
-  .some_text {
-    font-size: 1.1rem;
-  }
-
-  .close_button {
-    padding: 20px 20px 20px 20px;
-  }
-}
-
 .developed_By {
   width: 100%;
   display: flex;
   padding-left: 50px;
   padding-top: 140%;
+}
+
+@media (max-width: 991px) {
+  .searchresult {
+    display: grid;
+  }
+
+  .cityName {
+    padding: unset;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+
+  .some_text {
+    font-size: 1.5rem;
+    text-align: center;
+    height: 180px;
+  }
+
+  .temparture {
+    margin-left: 30px;
+  }
+
+  .city {
+    margin-left: 30px;
+  }
+  .cityName_menu {
+    margin-top: 100%;
+    margin-left: 0;
+    border-radius: 0px;
+  }
+
+  .menu_side {
+    /* transform: translateY(-100%); */
+    position: absolute;
+  }
+
+  .menu_side_active {
+    width: auto;
+    /* transform: translateY(0%); */
+    opacity: 1;
+  }
+
+  .right_side {
+    width: 100%;
+    grid-template-rows: unset;
+    grid-template-columns: 50% 50%;
+  }
+
+  .right_side_top {
+    border-radius: 0px 0px 0px 20px;
+  }
+
+  .right_side_bottom {
+    grid-row-start: unset;
+    grid-row-end: unset;
+  }
+
+  .developed_By {
+    padding-top: unset;
+  }
+
+  .quote_text {
+    margin: 5px;
+  }
 }

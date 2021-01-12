@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "@material-ui/core";
+// import { Container } from "@material-ui/core";
 import Searchresult from "./SearchResult";
 import axios from "axios";
 import "../styles/Weather.css";
@@ -108,7 +108,6 @@ export default function Weather() {
     const fetchData = async () => {
       try {
         const result = await axios(
-          // `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fa2f4fbdafdf3f04f1bd27d34de450a4&units=metric`
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
         );
 
@@ -163,41 +162,40 @@ export default function Weather() {
   // }
 
   return (
-    <Container className="Container">
-      <div className="container_data">
-        {city ? (
-          <div className="Weather">
-            {weatherData.ready ? (
-              <Animated
-                animationIn="rotateIn"
-                animationOut="rotateOut"
-                animationInDuration={1000}
-                animationOutDuration={1000}
-                isVisible={true}
-              >
-                <Searchresult
-                  data={weatherData}
-                  locationer={locationer}
-                  handleInput={handleInput}
-                  handleSubmit={handleSubmit}
-                  searcher={searcher}
-                  convertToC={convertToC}
-                  convertToF={convertToF}
-                  unit={unit}
-                  activeClass={activeClass}
-                  setActiveClass={setActiveClass}
-                  renew={renew}
-                  setRenew={setRenew}
-                  setUpdateMessage={setUpdateMessage}
-                  updateMessage={updateMessage}
-                  city={city}
-                  forecastData={forecastData}
-                  loading={loading}
-                />
-              </Animated>
-            ) : null}
+    <div className="container_data">
+      {city ? (
+        <div className="Weather">
+          {weatherData.ready ? (
+            <Animated
+              animationIn="rotateIn"
+              animationOut="rotateOut"
+              animationInDuration={1000}
+              animationOutDuration={1000}
+              isVisible={true}
+            >
+              <Searchresult
+                data={weatherData}
+                locationer={locationer}
+                handleInput={handleInput}
+                handleSubmit={handleSubmit}
+                searcher={searcher}
+                convertToC={convertToC}
+                convertToF={convertToF}
+                unit={unit}
+                activeClass={activeClass}
+                setActiveClass={setActiveClass}
+                renew={renew}
+                setRenew={setRenew}
+                setUpdateMessage={setUpdateMessage}
+                updateMessage={updateMessage}
+                city={city}
+                forecastData={forecastData}
+                loading={loading}
+              />
+            </Animated>
+          ) : null}
 
-            {/* <div className="search-section">
+          {/* <div className="search-section">
               <input
                 type="search"
                 placeholder="Voer een stadsnaam in"
@@ -207,13 +205,13 @@ export default function Weather() {
                 onChange={handleInput}
               />
               <button onClick={handleSubmit}>zoeken</button> */}
-            {/* <input
+          {/* <input
                 type="submit"
                 value="MyLocation"
                 className="CityButton"
                 onClick={getMyLocation}
               /> */}
-            {/* <div className="fixedButtons">
+          {/* <div className="fixedButtons">
                 <input
                   type="submit"
                   value="Amsterdam"
@@ -258,17 +256,16 @@ export default function Weather() {
                   onClick={getMyLocation}
                 />
               </div> */}
-            {/* </div> */}
+          {/* </div> */}
+        </div>
+      ) : (
+        <div className="wrapper">
+          <div className="Loading_first">
+            <Loading />
           </div>
-        ) : (
-          <div className="wrapper">
-            <div className="Loading_first">
-              <Loading />
-            </div>
-          </div>
-        )}
-      </div>
-    </Container>
+        </div>
+      )}
+    </div>
   );
 }
 

@@ -21,8 +21,8 @@
   width: 100%;
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .main_forecast {
     flex-direction: column;
   }
-}
+} */

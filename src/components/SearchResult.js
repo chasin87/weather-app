@@ -138,7 +138,12 @@ export default function Searchresult({
           isVisible={updateMessage}
         >
           <div
-            style={{ fontSize: "2vh", marginBottom: "20px", fontWeight: "600" }}
+            style={{
+              fontSize: "2vh",
+              marginBottom: "20px",
+              fontWeight: "600",
+              textAlign: "center",
+            }}
           >
             All data updated
           </div>

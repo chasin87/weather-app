@@ -22,8 +22,8 @@
 }
 
 .container_data {
-  width: 95%;
-  margin: auto;
+  width: 80%;
+  margin: 30px auto;
   border-radius: 20px;
   /* border: 1px solid #dfe1e5; */
   box-shadow: none;
@@ -74,19 +74,7 @@
 }
 
 @media (max-width: 991px) {
-  .Container {
-    padding: unset;
-    position: unset;
-  }
-
   .container_data {
-    width: 100vw;
-  }
-}
-
-@media (max-width: 991px) {
-  .MuiContainer-root {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    width: 90%;
   }
 }

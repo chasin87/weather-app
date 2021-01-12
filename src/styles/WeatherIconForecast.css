@@ -8,11 +8,6 @@
 .img_icon {
   width: 150px;
   height: auto;
-  margin-top: -20px;
-}
-
-@media (max-width: 401px) {
-  .img_icon {
-    width: unset;
-  }
+  display: grid;
+  margin: auto;
 }

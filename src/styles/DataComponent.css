@@ -2,3 +2,9 @@
   font-size: 0.8rem;
   text-align: left;
 }
+
+@media (max-width: 991px) {
+  .update_time {
+    margin-left: 30px;
+  }
+}

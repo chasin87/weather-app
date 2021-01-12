@@ -24,10 +24,8 @@ export default function DateComponent(props) {
   }
 
   return (
-    <div>
-      <div className="update_time">
-        {day} {hours} : {minutes}
-      </div>
+    <div className="update_time">
+      {day} {hours} : {minutes}
     </div>
   );
 }

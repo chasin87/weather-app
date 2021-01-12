@@ -26,3 +26,9 @@
   margin: 10px;
   transition: all 0.5s ease;
 }
+
+@media (max-width: 991px) {
+  .icons_nav {
+    justify-content: center;
+  }
+}
