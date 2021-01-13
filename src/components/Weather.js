@@ -15,8 +15,8 @@ export default function Weather() {
   const [forecastData, setForecastData] = useState({ ready: false });
   const [city, setCity] = useState(null);
   const [searcher, setSearcher] = useState("");
-  const [later, setLater] = useState(false);
-  const [lnger, setLnger] = useState(false);
+  // const [later, setLater] = useState(false);
+  // const [lnger, setLnger] = useState(false);
   // const [set, setSet] = useState(true);
   const [unit, setUnit] = useState("celsius");
   const [loading, setLoading] = useState(false);
@@ -61,6 +61,7 @@ export default function Weather() {
 
   useEffect(() => {
     locationer();
+    console.log("ben usefect");
     // setLoading(true);
   }, []);
 
@@ -73,16 +74,13 @@ export default function Weather() {
       setLoading(true);
       let lat = ("Latitude is :", position.coords.latitude);
       let lng = ("Longitude is :", position.coords.longitude);
-      setLater(position.coords.latitude);
-      setLnger(position.coords.longitude);
+      // setLater(lat);
+      // setLnger(lng);
 
       Geocode.fromLatLng(lat, lng).then(
         (response) => {
           setCity(false);
           const address = response.results[0].address_components[3].long_name;
-          // const { lat, lng } = response.results[0].geometry.location;
-          // setLater(lat);
-          // setLnger(lng);
           setCity(address);
         },
         (error) => {
@@ -92,17 +90,17 @@ export default function Weather() {
     });
   };
 
-  city &&
-    Geocode.fromAddress(city).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLater(lat);
-        setLnger(lng);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  // city &&
+  //   Geocode.fromAddress(city).then(
+  //     (response) => {
+  //       const { lat, lng } = response.results[0].geometry.location;
+  //       setLater(lat);
+  //       setLnger(lng);
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -112,32 +110,53 @@ export default function Weather() {
         );
 
         handleResponse(result);
+        console.log("hi i load city");
         setTimeout(() => {
           setUpdateMessage(false);
+          setLoading(false);
         }, 2000);
       } catch (error) {
         console.log("Please check the city name!", error);
       }
     };
     city && fetchData();
-  }, [city, updateMessage]);
+  }, [city]);
 
   useEffect(() => {
-    city &&
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
-        )
-        .then((responses) => {
-          setLoading(true);
-          forecastResponse(responses.data.daily);
-          console.log("responses.data.daily", responses.data.daily);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log("Please check the city name!", error);
-        });
-  }, [later, lnger, city]);
+    const fetchForecast = async () => {
+      try {
+        const resultFor = await axios(
+          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+        );
+        setLoading(true);
+        forecastResponse(resultFor.data.list);
+        console.log("responses.data.daily", resultFor.data.list);
+        setLoading(false);
+      } catch (error) {
+        console.log("Please check the city name!1", error);
+      }
+    };
+
+    city && fetchForecast();
+  }, [city]);
+
+  // const callmedan = useCallback(() => {
+  //   const fetchForecast = async () => {
+  //     try {
+  //       const resultFor = await axios(
+  //         `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
+  //       );
+  //       setLoading(true);
+  //       forecastResponse(resultFor.data.daily);
+  //       console.log("responses.data.daily", resultFor.data.daily);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log("Please check the city name!1", error);
+  //     }
+  //   };
+
+  //   fetchForecast();
+  // }, [later, lnger]);
 
   function handleSubmit() {
     if (searcher === "") {
@@ -191,6 +210,7 @@ export default function Weather() {
                 city={city}
                 forecastData={forecastData}
                 loading={loading}
+                // callmedan={callmedan}
               />
             </Animated>
           ) : null}

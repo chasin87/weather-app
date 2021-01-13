@@ -12,17 +12,21 @@ export default function WeatherIconForecast(props) {
   }
 
   useEffect(() => {
+    let mounted = true;
     const fetchData = async () => {
       try {
         const result = await axios(
           `https://openweathermap.org/img/wn/${props.code}.png`
         );
-        iconHandler(result.config.url);
+        if (mounted) {
+          iconHandler(result.config.url);
+        }
       } catch (error) {
         console.log("Icon not found forecast", error);
       }
     };
     fetchData();
+    return () => (mounted = false);
   }, [props]);
 
   return (

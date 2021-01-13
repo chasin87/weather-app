@@ -45,7 +45,6 @@ export default function Searchresult({
 
   useEffect(() => {
     setAnim(false);
-
     setTimeout(() => {
       setDisplayQuote(quotes[Math.floor(Math.random() * quotes.length)]);
       setAnim(true);
