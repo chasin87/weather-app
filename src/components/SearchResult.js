@@ -67,6 +67,7 @@ export default function Searchresult({
             className="menu_item"
             onClick={() => {
               setToDisplay("main");
+              setOpenMenu(false);
             }}
           >
             Main
@@ -76,6 +77,7 @@ export default function Searchresult({
             className="menu_item"
             onClick={() => {
               setToDisplay("forecast");
+              setOpenMenu(false);
             }}
           >
             Forecast
@@ -84,9 +86,10 @@ export default function Searchresult({
             className="menu_item"
             onClick={() => {
               setToDisplay("otherInfo");
+              setOpenMenu(false);
             }}
           >
-            OtherInfo
+            Other Info
           </div>
         </div>
         <div className="developed_By">

@@ -46,7 +46,7 @@
   font-size: 1.5rem;
   padding: 0rem 5rem 5rem 5rem;
   width: 60%;
-  height: 600px;
+  /* height: 600px; */
   background: #04d662;
   border-radius: 20px 0 0 20px;
   transition: all 0.5s ease;
@@ -73,6 +73,7 @@
   padding: 0px 40px 40px 40px;
   text-align: left;
   transition: all 3s ease;
+  width: 100%;
 }
 
 .menu_item {
@@ -132,7 +133,7 @@
 .CircularProgressbar {
   width: 50%;
   display: grid;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .CircularProgressbar .CircularProgressbar-text {
