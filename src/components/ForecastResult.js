@@ -11,7 +11,7 @@ export default function ForecastResult(props) {
 
   return (
     result && (
-      <div className="main_forecast">
+      <div className="main_forecast-flexbox">
         {result.map((res) => {
           return (
             <div className="forecast_box" key={res.dt}>

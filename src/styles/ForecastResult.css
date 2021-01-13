@@ -1,5 +1,55 @@
-.main_forecast {
+/* .main_forecast {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+} */
+
+.main_forecast-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  margin: auto;
+}
+.forecast_box {
+  flex: 0 0 auto;
+  margin-right: 3px;
   justify-content: center;
+  background: rgba(141, 141, 141, 0.481);
+  margin: auto;
+}
+/* 
+.forecast_box {
+  border: 2px solid red;
+  width: 150px;
+  height: 75px;
+  background: black;
+} */
+
+.main_forecast-flexbox {
+  height: 420px;
+  margin-bottom: 20px;
+  width: 300px;
+  -webkit-overflow-scrolling: touch;
+}
+.main_forecast-flexbox::-webkit-scrollbar {
+  display: none;
+}
+
+/* .main_forecast .forecast_box {
+  display: inline-block;
+} */
+
+.main_forecast::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.main_forecast {
+  overflow: -moz-scrollbars-none;
+}
+
+.main_forecast {
+  -ms-overflow-style: none;
 }
 
 .forecast_box {
@@ -7,9 +57,11 @@
   /* background-color: #fff;
   border: 1px solid #f8f9fa; */
   padding-bottom: 6px;
-  /* width: 100%; */
+  width: 100px;
   display: flex;
   margin-bottom: 10px;
+  padding: 5px 3px;
+  border-radius: 10px;
 }
 
 .forecast_box_element {
