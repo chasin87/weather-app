@@ -28,7 +28,11 @@ const Nav = ({
   city,
 }) => {
   function getMyLocation() {
-    if (navigator.geolocation) {
+    if (
+      navigator.geolocation &&
+      navigator.permissions &&
+      navigator.permissions.query
+    ) {
       navigator.permissions
         .query({ name: "geolocation" })
         .then(function (result) {
@@ -56,6 +60,8 @@ const Nav = ({
             }
           };
         });
+    } else if (navigator.geolocation) {
+      locationer();
     } else {
       alert("Sorry Not available!");
     }

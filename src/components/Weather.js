@@ -6,11 +6,12 @@ import "../styles/Weather.css";
 import Geocode from "react-geocode";
 import "../styles/SearchResult.css";
 import Loading from "./Loading";
+import { geolocated } from "react-geolocated";
 
 import "react-circular-progressbar/dist/styles.css";
 import { Animated } from "react-animated-css";
 
-export default function Weather() {
+const Weather = (props) => {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [forecastData, setForecastData] = useState({ ready: false });
   const [city, setCity] = useState("Amsterdam");
@@ -30,6 +31,10 @@ export default function Weather() {
     event.preventDefault();
     setUnit("fahrenheit");
   }
+
+  console.log("geolocisGeolocationAvailableated", props.isGeolocationAvailable);
+  console.log("isGeolocationEnabled", props.isGeolocationEnabled);
+  console.log("props.coords", props.coords);
 
   function handleResponse(result) {
     setWeatherData({
@@ -56,8 +61,14 @@ export default function Weather() {
     });
   }
 
+  useEffect(() => {});
+
   useEffect(() => {
-    if (navigator.geolocation) {
+    if (
+      navigator.geolocation &&
+      navigator.permissions &&
+      navigator.permissions.query
+    ) {
       navigator.permissions
         .query({ name: "geolocation" })
         .then(function (result) {
@@ -78,6 +89,8 @@ export default function Weather() {
             }
           };
         });
+    } else if (navigator.geolocation) {
+      locationer();
     } else {
       alert("Sorry Not available!");
     }
@@ -272,7 +285,7 @@ export default function Weather() {
       )}
     </div>
   );
-}
+};
 
 // {forecastData.ready ? (
 //   <ForecastResult
@@ -283,3 +296,16 @@ export default function Weather() {
 //     city={city}
 //   />
 // ) : null}
+
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: Infinity,
+  },
+  watchPosition: false,
+  userDecisionTimeout: null,
+  suppressLocationOnMount: false,
+  geolocationProvider: navigator.geolocation,
+  isOptimisticGeolocationEnabled: true,
+})(Weather);
