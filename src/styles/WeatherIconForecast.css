@@ -1,13 +1,18 @@
 .animation_icon {
-  /* display: flex; */
   justify-content: center;
   margin-top: -10px;
   margin-bottom: -10px;
 }
 
 .img_icon {
-  width: 150px;
+  width: 170px;
   height: auto;
   display: grid;
   margin: auto;
+}
+
+@media (max-width: 401px) {
+  .img_icon {
+    width: 80%;
+  }
 }

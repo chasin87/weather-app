@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { Container } from "@material-ui/core";
 import Searchresult from "./SearchResult";
 import axios from "axios";
 import "../styles/Weather.css";

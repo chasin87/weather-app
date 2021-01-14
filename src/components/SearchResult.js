@@ -213,7 +213,7 @@ export default function Searchresult({
                                   </div>
                                 </Animated>
                               </div>
-                              <div className="temparture">
+                              <div className="temperature">
                                 <div className="today">Today</div>
                                 <TempUnitCurrent
                                   celsius={data.temperature}

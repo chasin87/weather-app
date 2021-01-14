@@ -1,6 +1,5 @@
 .icons_nav {
   display: flex;
-  /* margin: 5px; */
   justify-content: space-between;
   width: 100%;
 }
@@ -30,5 +29,11 @@
 @media (max-width: 991px) {
   .icons_nav {
     justify-content: center;
+  }
+}
+
+@media (max-width: 401px) {
+  .icons_nav {
+    font-size: 1.3rem;
   }
 }

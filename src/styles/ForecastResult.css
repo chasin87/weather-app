@@ -38,9 +38,6 @@
   -ms-overflow-style: none;
 }
 
-.forecast_box {
-}
-
 .forecast_box_element {
   display: flex;
   justify-content: space-evenly;

@@ -4,27 +4,9 @@
   width: 100px;
 }
 
-.forecast_temps {
-  display: flex;
-  justify-content: space-evenly;
-  width: 70%;
-}
-.forecast_temps_forecast {
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-}
-
 .forecast_temps_cels_max {
   font-size: 1.4rem;
   font-weight: 700;
-  text-transform: capitalize;
-  color: #fff;
-}
-
-.forecast_temps_cels_min {
-  font-size: 1.5rem;
-  font-weight: normal;
   text-transform: capitalize;
   color: #fff;
 }

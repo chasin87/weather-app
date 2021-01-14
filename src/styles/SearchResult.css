@@ -1,28 +1,24 @@
-.main {
-  /* background: rgb(248, 247, 247); */
+/* .main {
   border-radius: 7px 7px 0px 0px;
-}
+} */
 
 .searchresult {
   display: flex;
   box-shadow: 5px 5px 15px 9px #d1d1d1;
   border-radius: 20px;
   background-color: #e7e7e7;
-  height: 600px;
-}
-
-.temperature {
-  display: flex;
-  justify-content: center;
+  height: 80vh;
+  width: 90vw;
+  margin: auto;
 }
 
 .some_text {
   font-size: 2rem;
-  /* font-weight: 600; */
   padding: 20px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
   height: 230px;
+  text-align: center;
 }
 
 .some_text_active {
@@ -46,8 +42,8 @@
   color: #fff;
   font-size: 1.5rem;
   padding: 0rem 5rem 0rem 5rem;
-  width: 60%;
-  height: 600px;
+  width: 60vw;
+  height: 80vh;
   background: #04d662;
   border-radius: 20px 0 0 20px;
   transition: all 0.5s ease;
@@ -62,6 +58,8 @@
   border-radius: 0px;
   width: 30%;
   margin-left: 30%;
+  -webkit-box-shadow: -8px 0px 9px 0px rgba(0, 0, 0, 0.55);
+  box-shadow: -8px 0px 9px 0px rgba(0, 0, 0, 0.55);
 }
 
 .close_button {
@@ -107,7 +105,7 @@
 }
 
 .right_side {
-  width: 33%;
+  width: 40vw;
   display: grid;
   border-radius: 0px 20px 20px 0px;
   grid-template-rows: 50% 50%;
@@ -119,6 +117,7 @@
   grid-row-start: 1;
   grid-row-end: 2;
   text-align: center;
+  padding: 20px;
 }
 
 .right_text {
@@ -139,7 +138,6 @@
 }
 
 .CircularProgressbar .CircularProgressbar-text {
-  /* fill: #3e98c7; */
   font-size: 30px;
   font-weight: 500;
 }
@@ -160,9 +158,8 @@
   background-image: linear-gradient(to bottom, transparent 50%, #d6ec12 50%),
     linear-gradient(to right, #fff 50%, #d6ec12 50%);
   background-size: 6px 6px, 6px 6px;
-  /* background: #fff; */
   display: grid;
-  width: 100%;
+  padding: 20px;
 }
 
 .description_weather {
@@ -184,7 +181,6 @@
 }
 
 .inputer {
-  /* background: rgb(248, 247, 247); */
   width: 70%;
   border-radius: 0px 7px 0px 0px;
   display: grid;
@@ -193,7 +189,6 @@
 
 .buttons_group {
   padding: 10px 0px;
-  /* width: 100%; */
   display: grid;
   grid-template-columns: 25% 25% 50%;
   align-items: center;
@@ -249,8 +244,8 @@
   grid-row-end: 6;
   margin-bottom: -10px;
   text-align: end;
-  /* margin-right: 10px; */
 }
+
 #input_basic {
   padding: 10px 5px;
   font-size: 1rem;
@@ -259,8 +254,6 @@
   height: 30px;
   width: 300px;
   text-align: center;
-
-  /* vertical-align: bottom; */
 }
 
 #input_basic:focus {
@@ -338,6 +331,7 @@ input[type="button"] {
   .searchresult {
     display: grid;
     height: auto;
+    grid-template-columns: 100%;
   }
 
   .cityName {
@@ -356,27 +350,28 @@ input[type="button"] {
     height: 180px;
   }
 
-  .temparture {
+  .temperature {
     margin-left: 30px;
   }
 
   .city {
     margin-left: 20px;
   }
+
   .cityName_menu {
-    margin-top: 100%;
+    margin-top: 60vh;
     margin-left: 0;
     border-radius: 0px;
+    -webkit-box-shadow: 0px -8px 9px 0px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px -8px 9px 0px rgba(0, 0, 0, 0.65);
   }
 
   .menu_side {
-    /* transform: translateY(-100%); */
     position: absolute;
   }
 
   .menu_side_active {
     width: auto;
-    /* transform: translateY(0%); */
     opacity: 1;
   }
 
@@ -388,13 +383,14 @@ input[type="button"] {
 
   .right_side_top {
     border-radius: 0px 0px 0px 20px;
+    padding: 0px 20px 20px 20px;
   }
 
   .right_side_bottom {
     grid-row-start: unset;
     grid-row-end: unset;
     grid-template-rows: 30% 50% 20%;
-    padding-bottom: 10px;
+    padding: 0px 20px 20px 20px;
   }
 
   .icon {
@@ -403,12 +399,12 @@ input[type="button"] {
   }
 
   .img_icon {
-    margin-top: -10px;
+    margin-top: 20px;
   }
 
   .description_weather {
-    margin-top: -20px;
-    margin-bottom: 5px;
+    margin-top: -25px;
+    margin-bottom: 7px;
   }
 
   .developed_By {
@@ -427,5 +423,19 @@ input[type="button"] {
 @media (max-width: 768px) {
   .CircularProgressbar {
     max-width: 170px;
+  }
+  .img_icon {
+    margin-top: unset;
+  }
+}
+
+@media (max-width: 501px) {
+  .right_text {
+    text-align: center;
+    margin-left: unset;
+  }
+
+  .right_side_bottom {
+    padding: 0px;
   }
 }
