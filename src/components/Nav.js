@@ -18,22 +18,50 @@ const Nav = ({
   locationer,
   setActiveClass,
   activeClass,
-  renew,
-  setRenew,
   setUpdateMessage,
-  updateMessage,
   setOpenMenu,
   openMenu,
   setNext,
   next,
   setLoadingMessage,
+  setCity,
+  city,
 }) => {
   function getMyLocation() {
-    locationer();
-    setLoadingMessage(true);
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          if (result.state === "granted") {
+            console.log(result.state);
+            locationer();
+            setLoadingMessage(true);
+          } else if (result.state === "prompt") {
+            console.log(result.state);
+            locationer();
+            setLoadingMessage(true);
+          } else if (result.state === "denied") {
+            alert(
+              "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
+            );
+            console.log(result.state);
+            setCity(city);
+          }
+          result.onchange = function () {
+            console.log(result.state);
+            if (result.state === "denied") {
+              alert(
+                "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
+              );
+            }
+          };
+        });
+    } else {
+      alert("Sorry Not available!");
+    }
   }
+
   function getRefresh() {
-    setRenew(true);
     setUpdateMessage(true);
   }
 

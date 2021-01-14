@@ -13,16 +13,13 @@ import { Animated } from "react-animated-css";
 export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [forecastData, setForecastData] = useState({ ready: false });
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState("Amsterdam");
   const [searcher, setSearcher] = useState("");
-  // const [later, setLater] = useState(false);
-  // const [lnger, setLnger] = useState(false);
-  // const [set, setSet] = useState(true);
   const [unit, setUnit] = useState("celsius");
   const [loading, setLoading] = useState(false);
   const [activeClass, setActiveClass] = useState(false);
-  const [renew, setRenew] = useState(false);
   const [updateMessage, setUpdateMessage] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState(false);
 
   function convertToC(event) {
     event.preventDefault();
@@ -60,9 +57,30 @@ export default function Weather() {
   }
 
   useEffect(() => {
-    locationer();
-    console.log("ben usefect");
-    // setLoading(true);
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          if (result.state === "granted") {
+            console.log(result.state);
+            locationer();
+          } else if (result.state === "prompt") {
+            console.log(result.state);
+            setCity("Amsterdam");
+          } else if (result.state === "denied") {
+            setCity("Amsterdam");
+            console.log(result.state);
+          }
+          result.onchange = function () {
+            console.log(result.state);
+            if (result.state === "denied") {
+              setLoadingMessage(false);
+            }
+          };
+        });
+    } else {
+      alert("Sorry Not available!");
+    }
   }, []);
 
   Geocode.setApiKey(process.env.REACT_APP_WEATHER_API_GOOGLE);
@@ -72,11 +90,10 @@ export default function Weather() {
   const locationer = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLoading(true);
+      setLoadingMessage(false);
       let lat = ("Latitude is :", position.coords.latitude);
       let lng = ("Longitude is :", position.coords.longitude);
-      // setLater(lat);
-      // setLnger(lng);
-
+      console.log(lat, lng);
       Geocode.fromLatLng(lat, lng).then(
         (response) => {
           setCity(false);
@@ -90,18 +107,6 @@ export default function Weather() {
     });
   };
 
-  // city &&
-  //   Geocode.fromAddress(city).then(
-  //     (response) => {
-  //       const { lat, lng } = response.results[0].geometry.location;
-  //       setLater(lat);
-  //       setLnger(lng);
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -110,7 +115,6 @@ export default function Weather() {
         );
 
         handleResponse(result);
-        console.log("hi i load city");
         setTimeout(() => {
           setUpdateMessage(false);
           setLoading(false);
@@ -130,33 +134,14 @@ export default function Weather() {
         );
         setLoading(true);
         forecastResponse(resultFor.data.list);
-        console.log("responses.data.daily", resultFor.data.list);
         setLoading(false);
       } catch (error) {
-        console.log("Please check the city name!1", error);
+        console.log("Please check the city name!", error);
       }
     };
 
     city && fetchForecast();
   }, [city]);
-
-  // const callmedan = useCallback(() => {
-  //   const fetchForecast = async () => {
-  //     try {
-  //       const resultFor = await axios(
-  //         `https://api.openweathermap.org/data/2.5/onecall?lat=${later}&lon=${lnger}&exclude=current,minutely,hourly,alerts&appid=${process.env.REACT_APP_WEATHER_API}&units=metric`
-  //       );
-  //       setLoading(true);
-  //       forecastResponse(resultFor.data.daily);
-  //       console.log("responses.data.daily", resultFor.data.daily);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.log("Please check the city name!1", error);
-  //     }
-  //   };
-
-  //   fetchForecast();
-  // }, [later, lnger]);
 
   function handleSubmit() {
     if (searcher === "") {
@@ -203,14 +188,14 @@ export default function Weather() {
                 unit={unit}
                 activeClass={activeClass}
                 setActiveClass={setActiveClass}
-                renew={renew}
-                setRenew={setRenew}
                 setUpdateMessage={setUpdateMessage}
                 updateMessage={updateMessage}
+                setCity={setCity}
                 city={city}
                 forecastData={forecastData}
                 loading={loading}
-                // callmedan={callmedan}
+                setLoadingMessage={setLoadingMessage}
+                loadingMessage={loadingMessage}
               />
             </Animated>
           ) : null}

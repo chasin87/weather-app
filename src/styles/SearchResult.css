@@ -8,6 +8,7 @@
   box-shadow: 5px 5px 15px 9px #d1d1d1;
   border-radius: 20px;
   background-color: #e7e7e7;
+  height: 600px;
 }
 
 .temperature {
@@ -44,9 +45,9 @@
 .cityName {
   color: #fff;
   font-size: 1.5rem;
-  padding: 0rem 5rem 5rem 5rem;
+  padding: 0rem 5rem 0rem 5rem;
   width: 60%;
-  /* height: 600px; */
+  height: 600px;
   background: #04d662;
   border-radius: 20px 0 0 20px;
   transition: all 0.5s ease;
@@ -131,7 +132,8 @@
 }
 
 .CircularProgressbar {
-  width: 50%;
+  max-width: 250px;
+  height: auto;
   display: grid;
   margin: 10px auto;
 }
@@ -335,6 +337,7 @@ input[type="button"] {
 @media (max-width: 991px) {
   .searchresult {
     display: grid;
+    height: auto;
   }
 
   .cityName {
@@ -344,6 +347,7 @@ input[type="button"] {
     grid-row-start: 1;
     grid-row-end: 2;
     padding-bottom: 20px;
+    height: 600px;
   }
 
   .some_text {
@@ -417,5 +421,11 @@ input[type="button"] {
 
   #input_basic {
     width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .CircularProgressbar {
+    max-width: 170px;
   }
 }

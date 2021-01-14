@@ -28,20 +28,21 @@ export default function Searchresult({
   convertToF,
   setActiveClass,
   activeClass,
-  setRenew,
-  renew,
   setUpdateMessage,
   updateMessage,
+  setCity,
   city,
   forecastData,
   loading,
+  permissions,
+  setLoadingMessage,
+  loadingMessage,
 }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [toDisplay, setToDisplay] = useState("main");
   const [displayQuote, setDisplayQuote] = useState(false);
   const [next, setNext] = useState(0);
   const [anim, setAnim] = useState(false);
-  const [loadingMessage, setLoadingMessage] = useState(false);
 
   useEffect(() => {
     setAnim(false);
@@ -121,15 +122,15 @@ export default function Searchresult({
             locationer={locationer}
             setActiveClass={setActiveClass}
             activeClass={activeClass}
-            renew={renew}
-            setRenew={setRenew}
             setUpdateMessage={setUpdateMessage}
-            updateMessage={updateMessage}
             setOpenMenu={setOpenMenu}
             openMenu={openMenu}
             setNext={setNext}
             next={next}
             setLoadingMessage={setLoadingMessage}
+            permissions={permissions}
+            setCity={setCity}
+            city={city}
           />
         </div>
         <Animated
