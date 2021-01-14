@@ -167,10 +167,6 @@ const Weather = (props) => {
     setSearcher(event.target.value);
   }
 
-  // function handleInputDefault(event) {
-  //   setCity(event.target.value);
-  // }
-
   return (
     <div className="container_data">
       {city ? (
@@ -205,69 +201,6 @@ const Weather = (props) => {
               />
             </Animated>
           ) : null}
-
-          {/* <div className="search-section">
-              <input
-                type="search"
-                placeholder="Voer een stadsnaam in"
-                className="search-box"
-                autoFocus="on"
-                value={searcher}
-                onChange={handleInput}
-              />
-              <button onClick={handleSubmit}>zoeken</button> */}
-          {/* <input
-                type="submit"
-                value="MyLocation"
-                className="CityButton"
-                onClick={getMyLocation}
-              /> */}
-          {/* <div className="fixedButtons">
-                <input
-                  type="submit"
-                  value="Amsterdam"
-                  className="CityButton"
-                  onClick={handleInputDefault}
-                />
-                <input
-                  type="submit"
-                  value="London"
-                  className="CityButton"
-                  onClick={handleInputDefault}
-                />
-                <input
-                  type="submit"
-                  value="New York"
-                  className="CityButton"
-                  onClick={handleInputDefault}
-                />
-                <input
-                  type="submit"
-                  value="Tokyo"
-                  className="CityButton"
-                  onClick={handleInputDefault}
-                />
-                <input
-                  type="submit"
-                  value="Paris"
-                  className="CityButton"
-                  onClick={handleInputDefault}
-                />
-                <input
-                  type="submit"
-                  value="Milan"
-                  className="CityButton"
-                  onClick={handleInputDefault}
-                />
-
-                <input
-                  type="submit"
-                  value="MyLocation"
-                  className="CityButton"
-                  onClick={getMyLocation}
-                />
-              </div> */}
-          {/* </div> */}
         </div>
       ) : (
         <div className="wrapper">
