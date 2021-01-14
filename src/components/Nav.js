@@ -9,6 +9,7 @@ import { WiFahrenheit } from "react-icons/wi";
 import { IconContext } from "react-icons";
 import { MdLocationSearching } from "react-icons/md";
 import { BsCardText } from "react-icons/bs";
+import { RiHome2Line } from "react-icons/ri";
 
 import "../styles/Nav.css";
 
@@ -96,12 +97,21 @@ const Nav = ({
             />
           </div>
           <div style={{ margin: "10px" }}>
-            <AiOutlineSearch
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                setActiveClass(!activeClass);
-              }}
-            />
+            {activeClass === false ? (
+              <AiOutlineSearch
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setActiveClass(!activeClass);
+                }}
+              />
+            ) : (
+              <RiHome2Line
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  setActiveClass(!activeClass);
+                }}
+              />
+            )}
           </div>
 
           <div style={{ margin: "10px" }}>
