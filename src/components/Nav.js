@@ -1,4 +1,5 @@
 import React from "react";
+import { geolocated } from "react-geolocated";
 
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -138,4 +139,15 @@ const Nav = ({
   );
 };
 
-export default Nav;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: Infinity,
+  },
+  watchPosition: false,
+  userDecisionTimeout: null,
+  suppressLocationOnMount: false,
+  geolocationProvider: navigator.geolocation,
+  isOptimisticGeolocationEnabled: true,
+})(Nav);

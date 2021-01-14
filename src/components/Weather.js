@@ -32,10 +32,6 @@ const Weather = (props) => {
     setUnit("fahrenheit");
   }
 
-  console.log("geolocisGeolocationAvailableated", props.isGeolocationAvailable);
-  console.log("isGeolocationEnabled", props.isGeolocationEnabled);
-  console.log("props.coords", props.coords);
-
   function handleResponse(result) {
     setWeatherData({
       ready: true,
@@ -60,8 +56,6 @@ const Weather = (props) => {
       responses: responses,
     });
   }
-
-  useEffect(() => {});
 
   useEffect(() => {
     if (
@@ -106,7 +100,7 @@ const Weather = (props) => {
       setLoadingMessage(false);
       let lat = ("Latitude is :", position.coords.latitude);
       let lng = ("Longitude is :", position.coords.longitude);
-      console.log(lat, lng);
+
       Geocode.fromLatLng(lat, lng).then(
         (response) => {
           setCity(false);
@@ -286,16 +280,6 @@ const Weather = (props) => {
     </div>
   );
 };
-
-// {forecastData.ready ? (
-//   <ForecastResult
-//     data={forecastData}
-//     convertToC={convertToC}
-//     convertToF={convertToF}
-//     unit={unit}
-//     city={city}
-//   />
-// ) : null}
 
 export default geolocated({
   positionOptions: {
