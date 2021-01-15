@@ -115,6 +115,9 @@ const Weather = (props) => {
         }
       );
     });
+    setTimeout(() => {
+      setLoadingMessage(false);
+    }, 2000);
   };
 
   useEffect(() => {
