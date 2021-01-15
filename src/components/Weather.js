@@ -113,6 +113,9 @@ const Weather = (props) => {
 
           setTimeout(() => {
             setLoadingMessage(false);
+            alert(
+              "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
+            );
           }, 3000);
         }
       );
@@ -120,6 +123,9 @@ const Weather = (props) => {
 
     setTimeout(() => {
       setLoadingMessage(false);
+      alert(
+        "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
+      );
     }, 3000);
   };
 
