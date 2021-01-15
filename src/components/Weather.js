@@ -70,24 +70,17 @@ const Weather = (props) => {
           if (result.state === "granted") {
             console.log(result.state);
             locationer();
-            setLoadingMessage(true);
           } else if (result.state === "prompt") {
             console.log(result.state);
-            locationer();
-            setLoadingMessage(true);
-          } else if (result.state === "denied") {
-            alert(
-              "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
-            );
-            console.log(result.state);
             setCity("Amsterdam");
+          } else if (result.state === "denied") {
+            setCity("Amsterdam");
+            console.log(result.state);
           }
           result.onchange = function () {
             console.log(result.state);
             if (result.state === "denied") {
-              alert(
-                "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
-              );
+              setLoadingMessage(false);
             }
           };
         });
