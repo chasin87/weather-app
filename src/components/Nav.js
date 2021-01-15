@@ -1,6 +1,7 @@
 import React from "react";
 import { geolocated } from "react-geolocated";
 
+//Icons
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineSync } from "react-icons/ai";

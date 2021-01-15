@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Searchresult from "./SearchResult";
 import axios from "axios";
-import "../styles/Weather.css";
-import Geocode from "react-geocode";
-import "../styles/SearchResult.css";
+import Searchresult from "./SearchResult";
 import Loading from "./Loading";
+
+import Geocode from "react-geocode";
 import { geolocated } from "react-geolocated";
 
 import "react-circular-progressbar/dist/styles.css";
 import { Animated } from "react-animated-css";
+
+import "../styles/SearchResult.css";
+import "../styles/Weather.css";
 
 const Weather = (props) => {
   const [weatherData, setWeatherData] = useState({ ready: false });

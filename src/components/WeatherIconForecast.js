@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 
 import "../styles/WeatherIconForecast.css";

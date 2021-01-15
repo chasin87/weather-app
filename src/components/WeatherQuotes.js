@@ -1,8 +1,3 @@
-// import React from "react";
-
-// import "../styles/WeatherQuotes.css";
-
-// const WeatherQuotes = () => {
 export const quotes = [
   {
     quote:

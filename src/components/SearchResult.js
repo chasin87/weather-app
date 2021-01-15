@@ -3,16 +3,15 @@ import DateComponent from "./DataComponent";
 import WeatherIcon from "./WeatherIcon";
 import TempUnitCurrent from "./TempUnitCurrent";
 import ForecastResult from "./ForecastResult";
-
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
-import { Animated } from "react-animated-css";
 import Nav from "./Nav";
-import { BsXSquare } from "react-icons/bs";
-
+import Loading from "./Loading";
 import { quotes } from "./WeatherQuotes";
 
-import Loading from "./Loading";
+import { BsXSquare } from "react-icons/bs";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+
+import "react-circular-progressbar/dist/styles.css";
+import { Animated } from "react-animated-css";
 
 import "../styles/SearchResult.css";
 import "../styles/WeatherQuotes.css";

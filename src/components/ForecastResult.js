@@ -2,7 +2,6 @@ import React from "react";
 import DataComponentForecast from "./DataComponentForecast";
 import WeatherIconForecast from "./WeatherIconForecast";
 import TempUnit from "./TempUnit";
-// import Moment from "react-moment";
 
 import "../styles/ForecastResult.css";
 

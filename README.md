@@ -31,6 +31,7 @@ The goal of this project is to build a React app using different Api data.
 ![REACTJS](https://img.shields.io/badge/-ReactJS-%23000?logo=react)
 ![HTML](https://img.shields.io/badge/-HTML5-%23fff?logo=html5)
 ![CSS](https://img.shields.io/badge/-CSS3-%231572B6?logo=css3)
+![MATERIAL-UI](https://img.shields.io/badge/-MATERIAL%20UI-%230081CB?logo=material-ui)
 
 ### User Stories
 
