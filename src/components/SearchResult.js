@@ -36,6 +36,7 @@ export default function Searchresult({
   permissions,
   setLoadingMessage,
   loadingMessage,
+  handleKeyPress,
 }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [toDisplay, setToDisplay] = useState("main");
@@ -170,6 +171,7 @@ export default function Searchresult({
                       placeholder="Search city"
                       onChange={handleInput}
                       value={searcher}
+                      onKeyPress={handleKeyPress}
                     />
                     <button className="button_search" onClick={handleSubmit}>
                       Search

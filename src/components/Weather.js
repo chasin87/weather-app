@@ -151,6 +151,17 @@ const Weather = (props) => {
     city && fetchForecast();
   }, [city]);
 
+  function handleInput(event) {
+    event.preventDefault();
+    setSearcher(event.target.value);
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   function handleSubmit() {
     if (searcher === "") {
       alert("Please enter a city");
@@ -162,11 +173,6 @@ const Weather = (props) => {
       window.scrollTo(0, 0);
       // setLoading(false);
     }
-  }
-
-  function handleInput(event) {
-    event.preventDefault();
-    setSearcher(event.target.value);
   }
 
   return (
@@ -200,6 +206,7 @@ const Weather = (props) => {
                 loading={loading}
                 setLoadingMessage={setLoadingMessage}
                 loadingMessage={loadingMessage}
+                handleKeyPress={handleKeyPress}
               />
             </Animated>
           ) : null}
