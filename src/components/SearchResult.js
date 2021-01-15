@@ -37,7 +37,6 @@ export default function Searchresult({
   setLoadingMessage,
   loadingMessage,
   handleKeyPress,
-  locationeronClick,
 }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [toDisplay, setToDisplay] = useState("main");
@@ -132,7 +131,6 @@ export default function Searchresult({
             permissions={permissions}
             setCity={setCity}
             city={city}
-            locationeronClick={locationeronClick}
           />
         </div>
         <Animated

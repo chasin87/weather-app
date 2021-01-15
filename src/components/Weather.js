@@ -96,36 +96,6 @@ const Weather = (props) => {
   Geocode.setLanguage("en");
   Geocode.enableDebug();
 
-  const locationeronClick = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLoading(true);
-      setLoadingMessage(false);
-      let lat = ("Latitude is :", position.coords.latitude);
-      let lng = ("Longitude is :", position.coords.longitude);
-
-      Geocode.fromLatLng(lat, lng).then(
-        (response) => {
-          setCity(false);
-          const address = response.results[0].address_components[3].long_name;
-          setCity(address);
-        },
-        (error) => {
-          console.log(error);
-
-          setTimeout(() => {
-            setLoadingMessage(false);
-            alert(
-              "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
-            );
-          }, 400);
-        }
-      );
-    });
-    setTimeout(() => {
-      setLoadingMessage(false);
-    }, 400);
-  };
-
   const locationer = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLoading(true);
@@ -241,7 +211,6 @@ const Weather = (props) => {
                 setLoadingMessage={setLoadingMessage}
                 loadingMessage={loadingMessage}
                 handleKeyPress={handleKeyPress}
-                locationeronClick={locationeronClick}
               />
             </Animated>
           ) : null}
