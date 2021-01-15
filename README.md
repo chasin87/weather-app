@@ -17,7 +17,6 @@ Efelay Weather App is an application created with ReactJS where you can get the 
 - **[Technologies used](#technologies-used)**
 - **[User stories](#user-stories)**
 - **[Installation](#Installation)**
-- **[Screenshots](#screenshots)**
 
 ### App Demo:
 
@@ -48,50 +47,3 @@ The goal of this project is to build a React app using different Api data.
 2. cd into your project
 3. install dependencies (npm install)
 4. Start development server with (npm start)
-
-### Screenshots
-
-<p align="center">
-<p align="center">Main Screen in Celsius</p>
-<img src="src/Screenshot/MainScreenCelsius.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Main Screen in Fahrenheit</p>
-<img src="src/Screenshot/MainScreenFahrenheit.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Main Screen in Celsius with Menu</p>
-<img src="src/Screenshot/MainScreenCelsiusWithMenu.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Search</p>
-<img src="src/Screenshot/Search.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Forecast in Celsius</p>
-<img src="src/Screenshot/ForecastCelsius.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Other Info</p>
-<img src="src/Screenshot/OtherInfo.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Main screen in Celcius on a Ipad</p>
-<img src="src/Screenshot/IpadScreenCelsius.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Main screen in Celcius on a Iphone Xs Max</p>
-<img src="src/Screenshot/MobileScreenCelsius.png" width="80%" height="80%">
-</p>
-
-<p align="center">
-<p align="center">Forecast in Celsius on a Iphone Xs Max</p>
-<img src="src/Screenshot/MobileScreenCelsiusForecast.png" width="80%" height="80%">
-</p>
