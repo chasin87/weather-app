@@ -18,7 +18,6 @@ const Nav = ({
   convertToC,
   convertToF,
   unit,
-  locationer,
   setActiveClass,
   activeClass,
   setUpdateMessage,
@@ -29,6 +28,7 @@ const Nav = ({
   setLoadingMessage,
   setCity,
   city,
+  locationeronClick,
 }) => {
   function getMyLocation() {
     if (
@@ -41,11 +41,11 @@ const Nav = ({
         .then(function (result) {
           if (result.state === "granted") {
             console.log(result.state);
-            locationer();
+            locationeronClick();
             setLoadingMessage(true);
           } else if (result.state === "prompt") {
             console.log(result.state);
-            locationer();
+            locationeronClick();
             setLoadingMessage(true);
           } else if (result.state === "denied") {
             alert(
@@ -64,7 +64,7 @@ const Nav = ({
           };
         });
     } else if (navigator.geolocation) {
-      locationer();
+      locationeronClick();
     } else {
       alert("Sorry Not available!");
     }
