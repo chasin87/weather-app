@@ -30,6 +30,7 @@ const Nav = ({
   setCity,
   city,
   isGeolocationEnabled,
+  IsGeolocationAvailable,
 }) => {
   function getMyLocation() {
     if (
@@ -70,7 +71,7 @@ const Nav = ({
       alert("Sorry Not available!");
     }
 
-    if (!isGeolocationEnabled) {
+    if (!isGeolocationEnabled && !IsGeolocationAvailable) {
       alert(
         "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
       );

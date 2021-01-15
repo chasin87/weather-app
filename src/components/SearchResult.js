@@ -37,6 +37,8 @@ export default function Searchresult({
   setLoadingMessage,
   loadingMessage,
   handleKeyPress,
+  isGeolocationEnabled,
+  isGeolocationAvailable,
 }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [toDisplay, setToDisplay] = useState("main");
@@ -131,6 +133,8 @@ export default function Searchresult({
             permissions={permissions}
             setCity={setCity}
             city={city}
+            isGeolocationEnabled={isGeolocationEnabled}
+            isGeolocationAvailable={isGeolocationAvailable}
           />
         </div>
         <Animated
