@@ -110,9 +110,11 @@ const Weather = (props) => {
         },
         (error) => {
           console.log(error);
+          setLoading(false);
         }
       );
     });
+    setLoading(false);
   };
 
   useEffect(() => {
