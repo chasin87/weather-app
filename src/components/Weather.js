@@ -207,8 +207,6 @@ const Weather = (props) => {
                 setLoadingMessage={setLoadingMessage}
                 loadingMessage={loadingMessage}
                 handleKeyPress={handleKeyPress}
-                IsGeolocationAvailable={props.IsGeolocationAvailable}
-                isGeolocationEnabled={props.isGeolocationEnabled}
               />
             </Animated>
           ) : null}
@@ -235,6 +233,4 @@ export default geolocated({
   suppressLocationOnMount: false,
   geolocationProvider: navigator.geolocation,
   isOptimisticGeolocationEnabled: true,
-  isGeolocationAvailable: null,
-  isGeolocationEnabled: null,
 })(Weather);

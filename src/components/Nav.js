@@ -29,8 +29,6 @@ const Nav = ({
   setLoadingMessage,
   setCity,
   city,
-  isGeolocationEnabled,
-  IsGeolocationAvailable,
 }) => {
   function getMyLocation() {
     if (
@@ -69,12 +67,6 @@ const Nav = ({
       locationer();
     } else {
       alert("Sorry Not available!");
-    }
-
-    if (!isGeolocationEnabled && !IsGeolocationAvailable) {
-      alert(
-        "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
-      );
     }
   }
 
