@@ -1,6 +1,7 @@
 .update_time {
   font-size: 0.8rem;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 991px) {
