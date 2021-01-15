@@ -53,45 +53,45 @@ The goal of this project is to build a React app using different Api data.
 
 <p align="center">
 <img src="src/Screenshot/MainScreenCelsius.png" width="80%" height="80%">
-Main Screen in Celsius
+<p align="center">Main Screen in Celsius</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/MainScreenFahrenheit.png" width="80%" height="80%">
-Main Screen in Fahrenheit
+<p align="center">Main Screen in Fahrenheit</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/MainScreenCelsiusWithMenu.png" width="80%" height="80%">
-Main Screen in Celsius with Menu
+<p align="center">Main Screen in Celsius with Menu</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/Search.png" width="80%" height="80%">
-Search
+<p align="center">Search</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/ForecastCelsius.png" width="80%" height="80%">
-Forecast in Celsius
+<p align="center">Forecast in Celsius</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/OtherInfo.png" width="80%" height="80%">
-Other Info
+<p align="center">Other Info</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/IpadScreenCelsius.png" width="80%" height="80%">
-Main screen in Celcius on a Ipad
+<p align="center">Main screen in Celcius on a Ipad</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/MobileScreenCelsius.png" width="80%" height="80%">
-Main screen in Celcius on a Iphone Xs Max
+<p align="center">Main screen in Celcius on a Iphone Xs Max</p>
 </p>
 
 <p align="center">
 <img src="src/Screenshot/MobileScreenCelsiusForecast.png" width="80%" height="80%">
-Forecast in Celsius on a Iphone Xs Max
+<p align="center">Forecast in Celsius on a Iphone Xs Max</p>
 </p>
