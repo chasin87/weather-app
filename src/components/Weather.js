@@ -110,11 +110,17 @@ const Weather = (props) => {
         },
         (error) => {
           console.log(error);
-          setLoading(false);
+
+          setTimeout(() => {
+            setLoadingMessage(false);
+          }, 3000);
         }
       );
     });
-    setLoading(false);
+
+    setTimeout(() => {
+      setLoadingMessage(false);
+    }, 3000);
   };
 
   useEffect(() => {
@@ -173,7 +179,6 @@ const Weather = (props) => {
       setSearcher("");
       setActiveClass(false);
       window.scrollTo(0, 0);
-      // setLoading(false);
     }
   }
 
@@ -217,6 +222,9 @@ const Weather = (props) => {
         <div className="wrapper">
           <div className="Loading_first">
             <Loading />
+            {setTimeout(() => {
+              setLoadingMessage(false);
+            }, 3000)}
           </div>
         </div>
       )}
