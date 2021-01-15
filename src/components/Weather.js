@@ -22,7 +22,6 @@ const Weather = (props) => {
   const [activeClass, setActiveClass] = useState(false);
   const [updateMessage, setUpdateMessage] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState(false);
-  const [done, setDone] = useState(false);
 
   function convertToC(event) {
     event.preventDefault();
@@ -108,7 +107,6 @@ const Weather = (props) => {
           setCity(false);
           const address = response.results[0].address_components[3].long_name;
           setCity(address);
-          setDone(true);
         },
         (error) => {
           console.log(error);
@@ -123,13 +121,8 @@ const Weather = (props) => {
       );
     });
     setTimeout(() => {
-      if (done === false) {
-        setLoadingMessage(false);
-        alert(
-          "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
-        );
-      }
-    }, 500);
+      setLoadingMessage(false);
+    }, 400);
   };
 
   const locationer = () => {
