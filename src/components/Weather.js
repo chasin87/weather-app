@@ -69,6 +69,7 @@ const Weather = (props) => {
         .then(function (result) {
           if (result.state === "granted") {
             console.log(result.state);
+            setLoadingMessage(true);
             locationer();
           } else if (result.state === "prompt") {
             console.log(result.state);
