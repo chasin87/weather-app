@@ -99,7 +99,7 @@ const Weather = (props) => {
   const locationer = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLoading(true);
-      setLoadingMessage(false);
+
       let lat = ("Latitude is :", position.coords.latitude);
       let lng = ("Longitude is :", position.coords.longitude);
 
@@ -108,16 +108,13 @@ const Weather = (props) => {
           setCity(false);
           const address = response.results[0].address_components[3].long_name;
           setCity(address);
+          setLoadingMessage(false);
         },
         (error) => {
           console.log(error);
         }
       );
     });
-
-    setTimeout(() => {
-      setLoadingMessage(false);
-    }, 400);
   };
 
   useEffect(() => {
