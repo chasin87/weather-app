@@ -15,7 +15,7 @@ import "../styles/Weather.css";
 const Weather = (props) => {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [forecastData, setForecastData] = useState({ ready: false });
-  const [city, setCity] = useState("Amsterdam");
+  const [city, setCity] = useState("");
   const [searcher, setSearcher] = useState("");
   const [unit, setUnit] = useState("celsius");
   const [loading, setLoading] = useState(false);
@@ -108,7 +108,6 @@ const Weather = (props) => {
           setCity(false);
           const address = response.results[0].address_components[3].long_name;
           setCity(address);
-          setLoadingMessage(false);
         },
         (error) => {
           console.log(error);
@@ -117,7 +116,7 @@ const Weather = (props) => {
     });
     setTimeout(() => {
       setLoadingMessage(false);
-    }, 2000);
+    }, 4000);
   };
 
   useEffect(() => {
@@ -131,9 +130,16 @@ const Weather = (props) => {
         setTimeout(() => {
           setUpdateMessage(false);
           setLoading(false);
+          setLoadingMessage(false);
         }, 2000);
       } catch (error) {
-        console.log("Please check the city name!", error);
+        console.log(
+          "Please check the city or country name and try again!",
+          error
+        );
+        alert("Please check the city or country name and try again!");
+        setLoadingMessage(false);
+        setLoading(false);
       }
     };
     city && fetchData();
@@ -148,8 +154,14 @@ const Weather = (props) => {
         setLoading(true);
         forecastResponse(resultFor.data.list);
         setLoading(false);
+        setLoadingMessage(false);
       } catch (error) {
-        console.log("Please check the city name!", error);
+        console.log(
+          "Please check the city or country name and try again!",
+          error
+        );
+        setLoadingMessage(false);
+        setLoading(false);
       }
     };
 
@@ -219,9 +231,6 @@ const Weather = (props) => {
         <div className="wrapper">
           <div className="Loading_first">
             <Loading />
-            {setTimeout(() => {
-              setLoadingMessage(false);
-            }, 3000)}
           </div>
         </div>
       )}

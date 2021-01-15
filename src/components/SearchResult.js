@@ -173,6 +173,13 @@ export default function Searchresult({
                       value={searcher}
                       onKeyPress={handleKeyPress}
                     />
+                    <div style={{ fontSize: "1rem", textAlign: "center" }}>
+                      To make it more precise put the city's name, comma,
+                      2-letter country code.
+                    </div>
+                    <div style={{ fontSize: "0.7rem", textAlign: "center" }}>
+                      Example - London, GB or New York, US.
+                    </div>
                     <button className="button_search" onClick={handleSubmit}>
                       Search
                     </button>
