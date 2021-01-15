@@ -3,6 +3,7 @@
   margin: 20px auto;
   border-radius: 20px;
   box-shadow: none;
+  min-height: 90vh;
 }
 
 .wrapper .Loading_first {
