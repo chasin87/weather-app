@@ -116,7 +116,7 @@ const Weather = (props) => {
             alert(
               "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
             );
-          }, 3000);
+          }, 400);
         }
       );
     });
@@ -126,7 +126,7 @@ const Weather = (props) => {
       alert(
         "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
       );
-    }, 3000);
+    }, 400);
   };
 
   useEffect(() => {
