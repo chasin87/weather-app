@@ -119,14 +119,13 @@ const Weather = (props) => {
           }, 400);
         }
       );
+      if (!position) {
+        setLoadingMessage(false);
+        alert(
+          "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
+        );
+      }
     });
-
-    setTimeout(() => {
-      setLoadingMessage(false);
-      alert(
-        "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
-      );
-    }, 400);
   };
 
   const locationer = () => {
