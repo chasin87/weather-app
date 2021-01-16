@@ -244,6 +244,7 @@ const Weather = (props) => {
                 setLoadingMessage={setLoadingMessage}
                 loadingMessage={loadingMessage}
                 handleKeyPress={handleKeyPress}
+                setLoading={setLoading}
               />
             </Animated>
           ) : null}

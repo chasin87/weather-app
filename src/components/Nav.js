@@ -29,6 +29,7 @@ const Nav = ({
   setCity,
   city,
   locationer,
+  setLoading,
 }) => {
   function getMyLocation() {
     if (
@@ -68,6 +69,22 @@ const Nav = ({
     } else {
       alert("Sorry Not available!");
     }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+    setCity("Amsterdam");
+    setLoadingMessage(false);
+    setLoading(false);
+    alert(
+      "To receive location-based weather information, you must allow to share your location. check your privacy settings in your browser."
+    );
+  }
+
+  function success(data) {
+    console.log("succes", data);
   }
 
   function getRefresh() {

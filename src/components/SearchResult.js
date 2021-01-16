@@ -37,6 +37,7 @@ export default function Searchresult({
   setLoadingMessage,
   loadingMessage,
   handleKeyPress,
+  setLoading,
 }) {
   const [openMenu, setOpenMenu] = useState(false);
   const [toDisplay, setToDisplay] = useState("main");
@@ -131,6 +132,7 @@ export default function Searchresult({
             permissions={permissions}
             setCity={setCity}
             city={city}
+            setLoading={setLoading}
           />
         </div>
         <Animated
