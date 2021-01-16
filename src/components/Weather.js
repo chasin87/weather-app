@@ -82,6 +82,7 @@ const Weather = (props) => {
             console.log(result.state);
             if (result.state === "denied") {
               setLoadingMessage(false);
+              setLoading(false);
             }
           };
         });
@@ -91,6 +92,13 @@ const Weather = (props) => {
       alert("Sorry Not available!");
     }
   }, []);
+
+  useEffect(() => {
+    if (props.isGeolocationEnabled) {
+      setLoadingMessage(false);
+      setLoading(false);
+    }
+  }, [props.isGeolocationEnabled]);
 
   Geocode.setApiKey(process.env.REACT_APP_WEATHER_API_GOOGLE);
   Geocode.setLanguage("en");
