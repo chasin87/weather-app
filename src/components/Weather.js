@@ -91,7 +91,20 @@ const Weather = (props) => {
     } else {
       alert("Sorry Not available!");
     }
+
+    navigator.geolocation.getCurrentPosition(success, error);
   }, []);
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+    setCity("Amsterdam");
+    setLoadingMessage(false);
+    setLoading(false);
+  }
+
+  function success(data) {
+    console.log("succes", data);
+  }
 
   useEffect(() => {
     if (props.isGeolocationEnabled) {
